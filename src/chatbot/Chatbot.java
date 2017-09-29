@@ -49,6 +49,18 @@ public class Chatbot {
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				jasmit.talk(response);
 			}
+			if(abed.isTriggered(response)) {
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				abed.talk(response);
+			}
+			if(abid.isTriggered(response)) {
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				abid.talk(response);
+			}
+			if(lord.isTriggered(response)) {
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				lord.talk(response);
+			}
 			else {
 				ChatbotMain.print("I'm sorry. I dont understand. I never said I was perfect.");
 			}
