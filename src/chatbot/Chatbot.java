@@ -8,6 +8,7 @@ public class Chatbot {
 	private Topic abed;
 	private Topic abid;
 	private Topic lord;
+	private Topic jas;
 
 	public Chatbot() {
 		jasmit = new ChatbotJasmit();
@@ -33,6 +34,10 @@ public class Chatbot {
 	
 	public Topic getLord() {
 		return lord;
+	}
+	
+	public Topic getJas() {
+		return jas;
 	}
 	
 	
