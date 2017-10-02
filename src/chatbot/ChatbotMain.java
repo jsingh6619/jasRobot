@@ -43,7 +43,6 @@ public class ChatbotMain{
 		return true;
 	}
 
-
 	public static String getInput(){
 		return inputSource.nextLine();
 	}
