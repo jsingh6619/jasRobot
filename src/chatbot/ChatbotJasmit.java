@@ -3,6 +3,9 @@ package chatbot;
 public class ChatbotJasmit implements Topic {
 	
 	private String[] keywords;
+	private String abidTrigger;
+	private String lordTrigger;
+	private String abedTrigger;
 	private String goodbyeKeyword;
 	private String secretKeyword;
 	private String response;
@@ -10,6 +13,9 @@ public class ChatbotJasmit implements Topic {
 	public ChatbotJasmit() {
 		String [] temp = {"stuff", "things", "whatever", "nothing"};
 		keywords = temp;
+		abidTrigger = "classwork";
+		lordTrigger = "tests";
+		abedTrigger = "homework";
 		goodbyeKeyword = "bye";
 		secretKeyword = "pug";
 		response = "";
