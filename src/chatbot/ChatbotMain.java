@@ -35,14 +35,67 @@ public class ChatbotMain{
 		return -1;
 	}
 
-	public static boolean keywordIsIsolated(int psn, String keyword, String s){
-		return true;
+	public static boolean keywordIsIsolated(int psn, String keyword, String s) {   
+        
+		char letterBefore;
+        char letterAfter;
+        try
+        {
+             letterBefore = s.charAt(psn-1);
+        }
+        catch(Exception e)
+        {
+             letterBefore = ' ';
+        }
+        try
+        {    
+             letterAfter = s.charAt(psn + keyword.length());
+        }
+        catch(Exception e)
+        {
+             letterAfter = ' ';
+        }
+        
+        if(isLetter(letterBefore) || isLetter(letterAfter))
+        {   
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+	public static boolean isLetter(char letter) {
+	      
+		int ascii = (int) letter;
+	        
+	    if(ascii >= 97 && ascii <= 122) {
+	        
+	    	System.out.println("between letters");
+	        return true;
+	    }else{
+	    	
+	    	System.out.println("not letter");
+	    	return false;
+	    }
 	}
-
 	public static boolean noNegations(String s, int psn){
+		try 	
+		{    
+			if(s.substring(psn-5,psn).equals(" not ")) {
+				return false;
+		    
+			}
+			if(s.substring(psn-4,psn).equals(" no ")) {	
+				return false;
+			}
+	    }catch(StringIndexOutOfBoundsException e) {
+	   		return true;
+	    
+		}
 		return true;
-	}
-
+	        	
+	  }
 
 	public static String getInput(){
 		return inputSource.nextLine();
