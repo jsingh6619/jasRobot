@@ -33,8 +33,6 @@ public class ChatbotAbid implements Topic {
 		ChatbotMain.print("GET OUT OF MY FACE" + ChatbotMain.chatbot.getUsername() + "!");
 		ChatbotMain.chatbot.startChatting();
 	}
-	
-	@Override
 	public boolean isTriggered(String response) {
 		for (int i = 0; i < keywords.length; i++) {
 			//IMPORTANT (on the rubric)

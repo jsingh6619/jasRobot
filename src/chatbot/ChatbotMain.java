@@ -94,8 +94,12 @@ public class ChatbotMain{
 	    
 		}
 		return true;
+<<<<<<< HEAD
 	        	
 	  }
+=======
+	}
+>>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 
 	public static String getInput(){
 		return inputSource.nextLine();

@@ -8,7 +8,6 @@ public class Chatbot {
 	private Topic abed;
 	private Topic abid;
 	private Topic lord;
-	private Topic jas;
 
 	public Chatbot() {
 		jasmit = new ChatbotJasmit();
@@ -42,6 +41,7 @@ public class Chatbot {
 		return lord;
 	}
 	
+<<<<<<< HEAD
 	public Topic getJas() 
 	{
 		return jas;
@@ -50,6 +50,9 @@ public class Chatbot {
 	
 	public void startChatting() 
 	{
+=======
+	public void startChatting() {
+>>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 		//whenever you print or get input, use these methods
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
