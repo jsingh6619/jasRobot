@@ -11,7 +11,7 @@ public class ChatbotLord implements Topic {
 		String[] temp = {"stuff","things","whatever","nothing"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "pug";
+		secretKeyword = "test";
 		response = "";
 	}
 	

@@ -71,11 +71,11 @@ public class ChatbotMain{
 	        
 	    if(ascii >= 97 && ascii <= 122) {
 	        
-	    	System.out.println("between letters");
+	    	//System.out.println("between letters");
 	        return true;
 	    }else{
 	    	
-	    	System.out.println("not letter");
+	    	
 	    	return false;
 	    }
 	}
@@ -94,12 +94,7 @@ public class ChatbotMain{
 	    
 		}
 		return true;
-<<<<<<< HEAD
-	        	
-	  }
-=======
 	}
->>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 
 	public static String getInput(){
 		return inputSource.nextLine();
