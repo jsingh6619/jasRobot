@@ -39,12 +39,11 @@ public class ChatbotJasmit implements Topic {
 				response = ChatbotMain.getInput();
 			}
 			else if(response.equals("teacher")) {
-				ChatbotMain.print("My name is Mr. Binockulars. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. ");
+				ChatbotMain.print("My name is Mr. Binockulars aka the quadilateral ninja. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. ");
 				response = ChatbotMain.getInput();
 			}
 			else{
-				ChatbotMain.print("Probably, but I'm not sure. What else do you want to know about this class or me? ");
-				response = ChatbotMain.getInput();
+				ChatbotMain.chatbot.restartChat();
 			}
 		}
 		//access variables from other classes

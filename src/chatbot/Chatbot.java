@@ -16,6 +16,10 @@ public class Chatbot
 		abid = new ChatbotAbid();
 		lord = new ChatbotLord();
 		username = "Unknown User";
+		chatting  = true;
+	}
+	
+	public void restartChat() {
 		chatting = true;
 	}
 	
