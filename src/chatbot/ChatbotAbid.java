@@ -8,10 +8,10 @@ public class ChatbotAbid implements Topic {
 	private String response;
 	
 	public ChatbotAbid() {
-		String [] temp = {"stuff", "things", "whatever", "nothing"};
+		String [] temp = {"late"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "mad";
+		secretKeyword = "late";
 		response = "";
 	}
 	
