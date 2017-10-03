@@ -4,10 +4,10 @@ public class Chatbot {
 	
 	private String username;
 	private boolean chatting;
-	private Topic jasmit;
-	private Topic abed;
-	private Topic abid;
-	private Topic lord;
+	private ChatbotJasmit jasmit;
+	private ChatbotAbed abed;
+	private ChatbotAbid abid;
+	private ChatbotLord lord;
 
 	public Chatbot() {
 		jasmit = new ChatbotJasmit();
@@ -23,22 +23,22 @@ public class Chatbot {
 		return username;
 	}
 	
-	public Topic getJasmit()
+	public ChatbotJasmit getJasmit()
 	{
 		return jasmit;
 	}
 	
-	public Topic getAbed() 
+	public ChatbotAbed getAbed() 
 	{
 		return abed;
 	}
 	
-	public Topic getAbid() 
+	public ChatbotAbid getAbid() 
 	{
 		return abid;
 	}
 	
-	public Topic getLord() 
+	public ChatbotLord getLord() 
 	{
 		
 		return lord;
@@ -59,17 +59,17 @@ public class Chatbot {
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				jasmit.talk(response);
 			}
-			if(abed.isTriggered(response)) 
+			else if(abed.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				abed.talk(response);
 			}
-			if(abid.isTriggered(response))
+			else if(abid.isTriggered(response))
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				abid.talk(response);
 			}
-			if(lord.isTriggered(response)) 
+			else if(lord.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				lord.talk(response);

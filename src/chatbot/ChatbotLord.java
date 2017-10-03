@@ -8,10 +8,10 @@ public class ChatbotLord implements Topic {
 	private String response;
 	
 	public ChatbotLord() {
-		String[] temp = {"stuff","things","whatever","nothing"};
+		String[] temp = {"test","quiz","tests","quizzes"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "test";
+		secretKeyword = "long";
 		response = "";
 	}
 	
