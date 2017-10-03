@@ -73,7 +73,7 @@ public class ChatbotMain{
 	    if(ascii >= 97 && ascii <= 122) {
 	    	
 	        return true;
-	    }
+	    
 	    }else{
 	    	
 	    	return false;
@@ -94,7 +94,7 @@ public class ChatbotMain{
 	    
 		}
 		return true;
-
+	}
 	public static String getInput(){
 		return inputSource.nextLine();
 	}

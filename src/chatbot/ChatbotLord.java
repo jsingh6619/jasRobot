@@ -8,11 +8,9 @@ public class ChatbotLord implements Topic {
 	private String response;
 	
 	public ChatbotLord() {
-<<<<<<< HEAD
-		String[] temp = {"test","things","whatever","nothing"};
-=======
+
 		String[] temp = {"test","quiz","tests","quizzes"};
->>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
+
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		secretKeyword = "long";
