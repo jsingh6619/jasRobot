@@ -28,7 +28,7 @@ public class ChatbotAbed implements Topic
 		}
 		return false;
 	}
-	
+	 
 
 	public void talk(String response) 
 	{
