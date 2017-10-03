@@ -12,6 +12,9 @@ public class Chatbot
 	public Chatbot() 
 	{
 		jasmit = new ChatbotJasmit();
+		abed = new ChatbotAbed();
+		abid = new ChatbotAbid();
+		lord = new ChatbotLord();
 		username = "Unknown User";
 		chatting = true;
 	}
@@ -21,24 +24,25 @@ public class Chatbot
 		return username;
 	}
 	
-	public Topic getJasmit()
+	public ChatbotJasmit getJasmit()
 	{
 		return jasmit;
 	}
 	
-	public Topic getAbed() 
+	public ChatbotAbed getAbed() 
 	{
 		return abed;
 	}
 	
-	public Topic getAbid() 
+	public ChatbotAbid getAbid() 
 	{
 		return abid;
 	}
 	
-	public Topic getLord() 
+	public ChatbotLord getLord() 
 	{
 		return lord;
+<<<<<<< HEAD
 	}
 	public Topic getJas() 
 	{
@@ -47,6 +51,12 @@ public class Chatbot
 	
 	public void startChatting() 
 	{
+=======
+	}
+	
+	
+	public void startChatting() {
+>>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
 		
@@ -60,24 +70,24 @@ public class Chatbot
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				jasmit.talk(response);
 			}
-			if(abed.isTriggered(response)) 
+			else if(abed.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				abed.talk(response);
 			}
-			if(abid.isTriggered(response))
+			else if(abid.isTriggered(response))
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				abid.talk(response);
 			}
-			if(lord.isTriggered(response)) 
+			else if(lord.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				lord.talk(response);
 			}
 			else 
 			{
-				ChatbotMain.print("I'm sorry. I dont understand. I never said I was perfect.");
+				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
 			}
 		}
 	}

@@ -3,40 +3,34 @@ package chatbot;
 public class ChatbotJasmit implements Topic {
 	
 	private String[] keywords;
-	private String abidTrigger;
-	private String lordTrigger;
-	private String abedTrigger;
 	private String goodbyeKeyword;
 	private String secretKeyword;
 	private String response;
 
 	public ChatbotJasmit() {
-		String [] temp = {"stuff", "things", "whatever", "nothing"};
+		String [] temp = {"policy", "learn", "about", "teacher", "class", "course"};
 		keywords = temp;
-		abidTrigger = "classwork";
-		lordTrigger = "tests";
-		abedTrigger = "homework";
 		goodbyeKeyword = "bye";
-		secretKeyword = "pug";
+		secretKeyword = "informative";
 		response = "";
 	}
 
 	@Override
 	public void talk(String response) {
-		ChatbotMain.print("Hey! So you want to talk about generic bring things, huh? I love talking about that. So tell me something");		
+		ChatbotMain.print("Hey! So you want to learn more about this class, huh? I'd love to tell you more about this course. What do you want to know?");		
 		response = ChatbotMain.getInput();
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
 			if(ChatbotMain.findKeyword(response, secretKeyword, 0) >= 0) {
-				ChatbotMain.print("I can't even. I love pugs so much. Wow. You are so cool.");
+				ChatbotMain.print("Thanks! I like to be informative and explain to you more about this class and me.");
 				response = ChatbotMain.getInput();
 			}
 			else {
-				ChatbotMain.print("Yeah. That's pretty cool. But there are thing I like even more. Tell me something else.");
+				ChatbotMain.print("Probably, but I'm not sure. What else do you want to know about this class or me? ");
 				response = ChatbotMain.getInput();
 			}
 		}
 		//access variables from other classes
-		ChatbotMain.print("Well, it was nice talking to you, " + ChatbotMain.chatbot.getUsername() + "!");
+		ChatbotMain.print("Hope you learned everything you wanted to! It was nice talking to you, " + ChatbotMain.chatbot.getUsername() + "!");
 		ChatbotMain.chatbot.startChatting();
 	}
 

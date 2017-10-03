@@ -71,9 +71,18 @@ public class ChatbotMain{
 		int ascii = (int) letter;
 	        
 	    if(ascii >= 97 && ascii <= 122) {
+<<<<<<< HEAD
+=======
+	        
+	    	//System.out.println("between letters");
+>>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 	        return true;
 	    }else{
 	    	
+<<<<<<< HEAD
+=======
+	    	
+>>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 	    	return false;
 	    }
 	}
@@ -92,7 +101,12 @@ public class ChatbotMain{
 	    
 		}
 		return true;
+<<<<<<< HEAD
 	}
+=======
+	}
+
+>>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 	public static String getInput(){
 		return inputSource.nextLine();
 	}
