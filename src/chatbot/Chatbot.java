@@ -76,7 +76,7 @@ public class Chatbot {
 			}
 			else 
 			{
-				ChatbotMain.print("I'm sorry. I dont understand. I never said I was perfect.");
+				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
 			}
 		}
 	}
