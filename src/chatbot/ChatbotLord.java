@@ -8,7 +8,7 @@ public class ChatbotLord implements Topic {
 	private String response;
 	
 	public ChatbotLord() {
-		String[] temp = {"stuff","things","whatever","nothing"};
+		String[] temp = {"test","things","whatever","nothing"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		secretKeyword = "pug";

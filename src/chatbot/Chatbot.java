@@ -1,15 +1,16 @@
 package chatbot;
 
-public class Chatbot {
-	
+public class Chatbot 
+{	
 	private String username;
 	private boolean chatting;
-	private Topic jasmit;
-	private Topic abed;
-	private Topic abid;
-	private Topic lord;
+	private ChatbotJasmit jasmit;
+	private ChatbotAbed abed;
+	private ChatbotAbid abid;
+	private ChatbotLord lord;
 
-	public Chatbot() {
+	public Chatbot() 
+	{
 		jasmit = new ChatbotJasmit();
 		username = "Unknown User";
 		chatting = true;
@@ -37,23 +38,15 @@ public class Chatbot {
 	
 	public Topic getLord() 
 	{
-		
 		return lord;
 	}
-	
-<<<<<<< HEAD
 	public Topic getJas() 
 	{
-		return jas;
+		return jasmit;
 	}
-	
 	
 	public void startChatting() 
 	{
-=======
-	public void startChatting() {
->>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
-		//whenever you print or get input, use these methods
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
 		
@@ -88,5 +81,4 @@ public class Chatbot {
 			}
 		}
 	}
-
 }

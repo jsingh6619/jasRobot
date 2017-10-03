@@ -9,12 +9,11 @@ public class ChatbotAbed implements Topic
 
 	public ChatbotAbed() 
 	{
-		String[] temp = {"stuff","things","whatever",""};
+		String[] temp = {"homework","extenstion","projects"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "pug";
-		response = "";
-		
+		secretKeyword = "incomplete";
+		response = " ";	
 	}
 
 	public boolean isTriggered(String response) 
@@ -33,12 +32,12 @@ public class ChatbotAbed implements Topic
 
 	public void talk(String response) 
 	{
-		ChatbotMain.print("Hey!So u wanna talk abiut generic stuff huh?");
+		ChatbotMain.print("Hey!So did you do your work?");
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1)
 		{
 			if(ChatbotMain.findKeyword(response, secretKeyword, 0)>=0)
 			{
-				ChatbotMain.print("I cant even fam. i love pugs.");
+				ChatbotMain.print("");
 				response = ChatbotMain.getInput();
 			}
 			else
