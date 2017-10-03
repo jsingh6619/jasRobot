@@ -42,21 +42,12 @@ public class Chatbot
 	public ChatbotLord getLord() 
 	{
 		return lord;
-<<<<<<< HEAD
 	}
-	public Topic getJas() 
-	{
-		return jasmit;
-	}
-	
-	public void startChatting() 
-	{
-=======
-	}
+
 	
 	
 	public void startChatting() {
->>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
+
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
 		
