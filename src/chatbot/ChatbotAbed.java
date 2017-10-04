@@ -40,13 +40,13 @@ public class ChatbotAbed implements Topic
 			{
 				ChatbotMain.print("What happened?");
 				response = ChatbotMain.getInput();
-				responseCounter+=1
+				responseCounter+=1;
 			}
 			else
 			{
 				ChatbotMain.print("thats cool i guees. but lets talk bout somethin else");
 				response = ChatbotMain.getInput();
-				responseCounter+=1
+				responseCounter+=1;
 			}
 			if(responseCounter == 1)
 			{
