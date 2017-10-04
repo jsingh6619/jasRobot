@@ -14,7 +14,7 @@ public class ChatbotJasmit implements Topic {
 		String [] semiPissed = {"You already said that. Please talk about something else", "We already discussed that. So what do you want to know more about?", "I think you just learned copy and paste. Lets try typing something new."};
 		String [] repeated = {"I think you mistyped, since we already talked about it", "I have no means of clarifying it further. Please ask about something else.", "You are just repeating stuff now."};
 		keywords = temp;
-		goodbyeKeyword = "bye";
+		goodbyeKeyword = "goodbye";
 		secretKeyword = "informative";
 		response = "";
 		repetition = 0;

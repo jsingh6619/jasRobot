@@ -18,9 +18,40 @@ public class Chatbot
 		username = "Unknown User";
 		chatting  = true;
 	}
-	
-	public void restartChat() {
+	////Made by Abed, written by Abid
+	public void restartChat() 
+	{
 		chatting = true;
+		while(chatting)
+		{
+			ChatbotMain.print("What would you like to talk about");
+			String response = ChatbotMain.getInput();
+			
+			if(jasmit.isTriggered(response)) 
+			{
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				jasmit.talk(response);
+			}
+			else if(abed.isTriggered(response)) 
+			{
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				abed.talk(response);
+			}
+			else if(abid.isTriggered(response))
+			{
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				abid.talk(response);
+			}
+			else if(lord.isTriggered(response)) 
+			{
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				lord.talk(response);
+			}
+			else 
+			{
+				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
+			}
+		}
 	}
 	
 	public String getUsername()
@@ -54,36 +85,6 @@ public class Chatbot
 
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
-		
-		while(chatting)
-		{
-			ChatbotMain.print("What would you like to talk about");
-			String response = ChatbotMain.getInput();
-			
-			if(jasmit.isTriggered(response)) 
-			{
-				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				jasmit.talk(response);
-			}
-			else if(abed.isTriggered(response)) 
-			{
-				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				abed.talk(response);
-			}
-			else if(abid.isTriggered(response))
-			{
-				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				abid.talk(response);
-			}
-			else if(lord.isTriggered(response)) 
-			{
-				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				lord.talk(response);
-			}
-			else 
-			{
-				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
-			}
-		}
+		restartChat();
 	}
 }
