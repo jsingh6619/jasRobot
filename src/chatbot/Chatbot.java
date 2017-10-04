@@ -62,6 +62,7 @@ public class Chatbot
 	public ChatbotJasmit getJasmit()
 	{
 		return jasmit;
+		
 	}
 	
 	public ChatbotAbed getAbed() 
