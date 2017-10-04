@@ -21,19 +21,20 @@ public class ChatbotJasmit implements Topic {
 	public void talk(String response) {
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
 			if(ChatbotMain.findKeyword(response, secretKeyword, 0) >= 0) {
-				ChatbotMain.print("Thanks! I like to be informative and explain to you more about this class and me.");
-				break;
+				ChatbotMain.print("Thanks! I like to be informative and explain to you more about this class and me. What else do you want to talk about?");
+				response = 
+						//lord has this wait for the push
 			}
 			else if(response.equals("policy")) {
-				ChatbotMain.print("I don't have any policies set right now.");
+				ChatbotMain.print("I don't have any policies set right now. What else do you want to know?");
 				break;
 			}
 			else if(response.equals("learn")||response.equals("about")||response.equals("class")||response.equals("course")) {
-				ChatbotMain.print("In this class, I will be teaching the students Computer Science.");
+				ChatbotMain.print("In this class, I will be teaching the students Computer Science. What else do you want to know?");
 				break;
 			}
 			else if(response.equals("teacher")) {
-				ChatbotMain.print("My name is Mr. Mister. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. ");
+				ChatbotMain.print("My name is Mr. Mister. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. What else do you want to know? ");
 				break;
 			}
 		}

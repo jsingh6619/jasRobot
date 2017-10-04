@@ -31,11 +31,10 @@ public class Chatbot
 	public void restartChat() 
 	{
 		chatting = true;
+		ChatbotMain.print("What would you like to talk about");
+		String response = ChatbotMain.getInput();
 		while(chatting)
-		{
-			ChatbotMain.print("What would you like to talk about");
-			String response = ChatbotMain.getInput();
-			
+		{	
 			if(jasmit.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
@@ -59,6 +58,7 @@ public class Chatbot
 			else 
 			{
 				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
+				response = ChatbotMain.getInput();
 			}
 		}
 	}
