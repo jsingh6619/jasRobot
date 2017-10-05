@@ -8,20 +8,20 @@ public class ChatbotAbid implements Topic {
 	private String response;
 	
 	public ChatbotAbid() {
-		String [] temp = {"whacky"};
+		String [] temp = {"classwork,"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "late";
+		secretKeyword = "mad";
 		response = "";
 	}
 	
           
 	public void talk(String response) {
-		ChatbotMain.print("");		
+		ChatbotMain.print("IF YOU DON'T DO YOUR CLASSWORK YOU GON GET KNOCKED THE FUCK OUT");		
 		response = ChatbotMain.getInput();
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
 			if(ChatbotMain.findKeyword(response, secretKeyword, 0) >= 0) {
-				ChatbotMain.print("I'M NOT MAD. STOP TALKING BEFORE I FAIL YOU.");
+				ChatbotMain.print("");
 				response = ChatbotMain.getInput();
 			}
 			else {
@@ -30,7 +30,7 @@ public class ChatbotAbid implements Topic {
 			}
 		}
 		//access variables from other classes
-		ChatbotMain.print("GET OUT OF MY FACE" + ChatbotMain.chatbot.getUsername() + "!");
+		ChatbotMain.print("" + ChatbotMain.chatbot.getUsername() + "!");
 		ChatbotMain.chatbot.startChatting();
 	}
 	public boolean isTriggered(String response) {

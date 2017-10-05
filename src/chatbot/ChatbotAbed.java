@@ -6,6 +6,7 @@ public class ChatbotAbed implements Topic
 	private String goodbyeKeyword;
 	private String secretKeyword;
 	private String response;
+	private int responseCounter;
 
 	public ChatbotAbed() 
 	{
@@ -13,7 +14,8 @@ public class ChatbotAbed implements Topic
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		secretKeyword = "incomplete";
-		response = " ";	
+		response = " ";
+		responseCounter = 0;
 	}
 
 	public boolean isTriggered(String response) 
@@ -28,23 +30,27 @@ public class ChatbotAbed implements Topic
 		}
 		return false;
 	}
-	 
-	
 
 	public void talk(String response) 
 	{
-		ChatbotMain.print("Hey!So did you do your work?");
+		ChatbotMain.print("Hey! So did you do your work?");
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1)
-		{
+		{	
 			if(ChatbotMain.findKeyword(response, secretKeyword, 0)>=0)
 			{
-				ChatbotMain.print("");
+				ChatbotMain.print("What happened?");
 				response = ChatbotMain.getInput();
+				responseCounter+=1;
 			}
 			else
 			{
 				ChatbotMain.print("Thats cool i guees. But lets talk bout something else");
 				response = ChatbotMain.getInput();
+				responseCounter+=1;
+			}
+			if(responseCounter == 1)
+			{
+				
 			}
 		}
 		//access variables	frim other classes
