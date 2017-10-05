@@ -6,6 +6,7 @@ public class ChatbotLord implements Topic {
 	private String goodbyeKeyword;
 	private String secretKeyword;
 	private String response;
+	private boolean isPassed;
 	
 	public ChatbotLord() {
 
@@ -18,8 +19,23 @@ public class ChatbotLord implements Topic {
 	}
 	
 	public void talk(String response) {
-		ChatbotMain.print("Yea you think you'll actually pass haha");
+		ChatbotMain.print("SOOOOO you have questions or concerns about assessments. Why? Do you think you can pass???");
 			response = ChatbotMain.getInput();
+			
+			//doesn't work yet
+			
+			isPassed = false;
+			int answerpsn = ChatbotMain.findKeyword(response, "yes", 0);
+			
+			if(answerpsn >= 0) {
+				isPassed = true;
+			}
+			
+			if(isPassed) {
+				ChatbotMain.print("ha jokes you imbecile");
+			}
+			
+			
 			while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
 				if(ChatbotMain.chatbot.getAbed().isTriggered(response)) {
 					ChatbotMain.chatbot.getAbed().talk(response);
