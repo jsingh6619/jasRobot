@@ -58,10 +58,7 @@ public class ChatbotLord implements Topic {
 					ChatbotMain.print("Yeah. That's pretty cool. But there are things I like even more tell me something else");
 					response = ChatbotMain.getInput();
 				}
-				if(ChatbotMain.chatbot.getAbed().isTriggered(response)) {
-					ChatbotMain.chatbot.getAbed().talk(response);
-					break;
-				}
+
 			}
 			
 			//way to access variables from other classes
