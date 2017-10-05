@@ -56,6 +56,10 @@ public class ChatbotLord implements Topic {
 					ChatbotMain.print("Yeah. That's pretty cool. But there are things I like even more tell me something else");
 					response = ChatbotMain.getInput();
 				}
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
 			}
 			
 			//way to access variables from other classes
