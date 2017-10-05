@@ -8,8 +8,6 @@ public class Chatbot
 	private ChatbotAbed abed;
 	private ChatbotAbid abid;
 	private ChatbotLord lord;
-	private String[] pissed;
-	private String[] semiPissed;
 	private String[] repeated;
 	private int repetition;
 	private String last;
@@ -22,9 +20,7 @@ public class Chatbot
 		lord = new ChatbotLord();
 		username = "Unknown User";
 		chatting  = true;
-		String [] pissed = {"This is a waste of time. Ask me something useful", "Stop wasting our time. I have work to grade.", "This is the last straw. If you dont stop, say goodbye to your grade."};
-		String [] semiPissed = {"You already said that. Please talk about something else", "We already discussed that. So what do you want to know more about?", "I think you just learned copy and paste. Lets try typing something new."};
-		String [] repeated = {"I have no means of clarifying it further. Please ask about something else.", "You are just repeating stuff now."};
+		String [] repeated = {"I have no means of clarifying it further. Please ask about something else.", "You are just repeating stuff now.", "You already said that. Please talk about something else", "We already discussed that. So what do you want to know more about?", "I think you just learned copy and paste. Lets try typing something new.", "This is a waste of time. Ask me something useful", "Stop wasting our time. I have work to grade.", "This is the last straw. If you dont stop, say goodbye to your grade."};
 		repetition = 0;
 	}
 	////Made by Abed, written by Abid
@@ -92,6 +88,13 @@ public class Chatbot
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
 		restartChat();
+	}
+	
+	public String sameReply()
+	{
+		String reply = "";
+		reply += repeated[repetition];
+		return reply;
 	}
 }
 
