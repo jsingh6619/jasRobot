@@ -8,7 +8,7 @@ public class ChatbotAbid implements Topic {
 	private String response;
 	
 	public ChatbotAbid() {
-		String [] temp = {"classwork,"};
+		String [] temp = {"late"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		secretKeyword = "mad";
@@ -17,16 +17,17 @@ public class ChatbotAbid implements Topic {
 	
           
 	public void talk(String response) {
-		ChatbotMain.print("IF YOU DON'T DO YOUR CLASSWORK YOU GON GET KNOCKED THE FUCK OUT");		
+		ChatbotMain.print("HIII");		
 		response = ChatbotMain.getInput();
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
 			if(ChatbotMain.findKeyword(response, secretKeyword, 0) >= 0) {
-				ChatbotMain.print("");
+				ChatbotMain.print("dont be late");
 				response = ChatbotMain.getInput();
 			}
-			else {
-				ChatbotMain.print("YOU'RE BORING.");
-				response = ChatbotMain.getInput();
+			else if(ChatbotMain.findKeyword(response, "like", 0) >= 0) {
+				int likePsn = response.indexOf("like");
+				String like = response.substring(likePsn,response.length());
+				System.out.print(like);
 			}
 		}
 		//access variables from other classes
