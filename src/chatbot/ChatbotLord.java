@@ -11,7 +11,6 @@ public class ChatbotLord implements Topic {
 	public ChatbotLord() {
 
 		String[] temp = {"test","quiz","tests","quizzes"};
-		
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		secretKeyword = "long";
@@ -32,7 +31,10 @@ public class ChatbotLord implements Topic {
 			}
 			
 			if(isPassed) {
-				ChatbotMain.print("ha jokes you imbecile");
+				ChatbotMain.print("Ha jokes you imbecile");
+			}
+			else {
+				
 			}
 			
 			
@@ -49,18 +51,10 @@ public class ChatbotLord implements Topic {
 					ChatbotMain.chatbot.getAbid().talk(response);
 					break;
 				}
-				/*if(ChatbotMain.findKeyword(response, secretKeyword, 0) >= 0) {
-					ChatbotMain.print("I can't even. I love pugs so much. Wow you are so cool.");
-					response = ChatbotMain.getInput();
-				}
-				*/
+				
 				else {
 					ChatbotMain.print("Yeah. That's pretty cool. But there are things I like even more tell me something else");
 					response = ChatbotMain.getInput();
-				}
-				if(ChatbotMain.chatbot.getAbed().isTriggered(response)) {
-					ChatbotMain.chatbot.getAbed().talk(response);
-					break;
 				}
 			}
 			
