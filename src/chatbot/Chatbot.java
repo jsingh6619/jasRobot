@@ -23,33 +23,31 @@ public class Chatbot
 		String [] repeated = {"I have no means of clarifying it further. Please ask about something else.", "You are just repeating stuff now.", "You already said that. Please talk about something else", "We already discussed that. So what do you want to know more about?", "I think you just learned copy and paste. Lets try typing something new.", "This is a waste of time. Ask me something useful", "Stop wasting our time. I have work to grade.", "This is the last straw. If you dont stop, say goodbye to your grade."};
 		repetition = 0;
 	}
-	////Made by Abed, written by Abid
-	public void restartChat() 
+	////Made by Abed, written by Abid, modified by Jasmit
+	public void restartChat(String response) 
 	{
 		chatting = true;
-		ChatbotMain.print("What would you like to talk about");
-		String response = ChatbotMain.getInput();
 		while(chatting)
 		{	
 			if(jasmit.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				jasmit.talk(response);
+				getJasmit().talk(response);
 			}
 			else if(abed.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				abed.talk(response);
+				getAbed().talk(response);
 			}
 			else if(abid.isTriggered(response))
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				abid.talk(response);
+				getAbid().talk(response);
 			}
 			else if(lord.isTriggered(response)) 
 			{
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				lord.talk(response);
+				getLord().talk(response);
 			}
 			else 
 			{
@@ -87,7 +85,8 @@ public class Chatbot
 	{
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
-		restartChat();
+		ChatbotMain.print("What would you like to talk about?");
+		restartChat(ChatbotMain.getInput());
 	}
 	
 	public String sameReply()
