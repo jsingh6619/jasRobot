@@ -7,14 +7,12 @@ public class ChatbotJasmit implements Topic {
 	private String[] keywords;
 	private String goodbyeKeyword;
 	private String secretKeyword;
-	private String response;
 
 	public ChatbotJasmit() {
 		String [] temp = {"policy", "learn", "about", "teacher", "class", "course"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		secretKeyword = "informative";
-		response = "";
 	}
 
 	@Override
