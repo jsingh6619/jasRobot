@@ -61,7 +61,7 @@ public class ChatbotJasmit implements Topic {
 
 	public void repeated(String response, int repetition) {
 		//4 is the length of the array - 1
-		if(repetition > 4) {
+		if(repetition < 4) {
 			ChatbotMain.print(repeated[repetition]);
 			response = ChatbotMain.getInput();
 		}
