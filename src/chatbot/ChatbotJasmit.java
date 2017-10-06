@@ -60,15 +60,13 @@ public class ChatbotJasmit implements Topic {
 	}
 
 	public void repeated(String response, int repetition) {
-		if(ChatbotMain.findKeyword(response, secretKeyword, 0) >= 0) {
-			//4 is the length of the array - 1
-			if(repetition > 4) {
-				ChatbotMain.print(repeated[repetition]);
-				response = ChatbotMain.getInput();
-			}
-			else {
-				ChatbotMain.print("Well it was nice talking to you " + ChatbotMain.chatbot.getUsername());
-			}
+		//4 is the length of the array - 1
+		if(repetition > 4) {
+			ChatbotMain.print(repeated[repetition]);
+			response = ChatbotMain.getInput();
+		}
+		else {
+			ChatbotMain.print("Well it was nice talking to you " + ChatbotMain.chatbot.getUsername());
 		}
 	}
 }

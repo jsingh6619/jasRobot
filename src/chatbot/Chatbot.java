@@ -32,9 +32,8 @@ public class Chatbot
 		{	
 			if(last.equals(response)) 
 			{
-				repetition++;
 				chatting = false;
-				getJasmit().repeated(response, repetition);
+				getJasmit().repeated(response, repetition++);
 			}
 			else if(jasmit.isTriggered(response)) 
 			{
