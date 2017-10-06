@@ -7,12 +7,15 @@ public class ChatbotJasmit implements Topic {
 	private String[] keywords;
 	private String goodbyeKeyword;
 	private String secretKeyword;
+	private String[] repeated;
 
 	public ChatbotJasmit() {
 		String [] temp = {"policy", "learn", "about", "teacher", "class", "course"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		secretKeyword = "informative";
+		String[] pear = {"I have no means of clarifying it further. Please ask about something else.", "We already discussed that. So what else do you want to know more about?", "I think you just learned copy and paste. Lets try typing something else.", "Stop wasting our time. I have work to grade.", "This is the last straw. If you dont stop, say goodbye to your grade."};
+		repeated = pear;
 	}
 
 	@Override
@@ -23,8 +26,14 @@ public class ChatbotJasmit implements Topic {
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 			else if(response.equals("policy")) {
-				ChatbotMain.print("I don't have any policies set right now. What else do you want to know?");
-				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+				ChatbotMain.print("My policy is that every student has their own way of learning, so I do not have any standards set right now. However, at the end of the year, a final will be given in which the student has to create a program on a specific prompt. If a student fails to complete the program with all the requirements, then they will have to repeat this course. Do my policies sound fair?");
+				if(ChatbotMain.getInput().toLowerCase().equals("yes")) {
+					ChatbotMain.print("Excellent! What else do you want to know about?");
+					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+				}
+				else {
+					ChatbotMain.chatbot.restartChat("bye");
+				}
 			}
 			else if(response.equals("learn")||response.equals("about")||response.equals("class")||response.equals("course")) {
 				ChatbotMain.print("In this class, I will be teaching the students Computer Science. What else do you want to know?");
@@ -35,6 +44,7 @@ public class ChatbotJasmit implements Topic {
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 		}
+		ChatbotMain.print("It was nice talking with you " + ChatbotMain.chatbot.getUsername() + "!");
 		//access variables from other classes
 	}
 
@@ -47,5 +57,18 @@ public class ChatbotJasmit implements Topic {
 			}
 		}
 		return false;
+	}
+
+	public void repeated(String response, int repetition) {
+		if(ChatbotMain.findKeyword(response, secretKeyword, 0) >= 0) {
+			//4 is the length of the array - 1
+			if(repetition > 4) {
+				ChatbotMain.print(repeated[repetition]);
+				response = ChatbotMain.getInput();
+			}
+			else {
+				ChatbotMain.print("Well it was nice talking to you " + ChatbotMain.chatbot.getUsername());
+			}
+		}
 	}
 }

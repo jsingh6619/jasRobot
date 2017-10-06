@@ -8,9 +8,8 @@ public class Chatbot
 	private ChatbotAbed abed;
 	private ChatbotAbid abid;
 	private ChatbotLord lord;
-	private String[] repeated;
-	private int repetition;
 	private String last;
+	private int repetition;
 
 	public Chatbot() 
 	{
@@ -20,8 +19,6 @@ public class Chatbot
 		lord = new ChatbotLord();
 		username = "Unknown User";
 		chatting  = true;
-		String[] temp = {"I have no means of clarifying it further. Please ask about something else.", "We already discussed that. So what else do you want to know more about?", "I think you just learned copy and paste. Lets try typing something else.", "Stop wasting our time. I have work to grade.", "This is the last straw. If you dont stop, say goodbye to your grade."};
-		repeated = temp;
 		repetition = 0;
 		last = "";
 	}
@@ -33,20 +30,11 @@ public class Chatbot
 		chatting = true;
 		while(chatting)
 		{	
-			//fix this part so it checks for how many indexes in the repeated array  ---  jasmit (10/05/2017)
-			int i = 4;
 			if(last.equals(response)) 
 			{
-				if(repetition > i) 
-				{
-					repetition++;
-					ChatbotMain.print(repeated[repetition]);
-					response = ChatbotMain.getInput();
-				}
-				else
-				{
-					restartChat("bye");
-				}
+				repetition++;
+				chatting = false;
+				getJasmit().repeated(response, repetition);
 			}
 			else if(jasmit.isTriggered(response)) 
 			{
@@ -114,14 +102,7 @@ public class Chatbot
 	{
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
-		ChatbotMain.print("What would you like to talk about?");
+		ChatbotMain.print("What would you like to talk about " + username + "?");
 		restartChat(ChatbotMain.getInput());
-	}
-	
-	public String sameReply()
-	{
-		String reply = "";
-		reply += repeated[repetition];
-		return reply;
 	}
 }
