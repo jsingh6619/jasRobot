@@ -17,7 +17,7 @@ public class ChatbotAbed implements Topic
 		response = " ";
 		responseCounter = 0;
 	}
-
+	//public void 
 	public boolean isTriggered(String response) 
 	{
 		for(int i = 0; i< keywords.length;i++)
@@ -30,7 +30,14 @@ public class ChatbotAbed implements Topic
 		}
 		return false;
 	}
-
+	public boolean yes(String response)
+	{
+		if(response.equals("yes"))
+		{
+			return true;
+		}
+		return false;
+	}
 	public void talk(String response) 
 	{
 		ChatbotMain.print("Hey! So did you do your work?");
@@ -48,12 +55,14 @@ public class ChatbotAbed implements Topic
 				response = ChatbotMain.getInput();
 				responseCounter+=1;
 			}
-			if(responseCounter == 1)
+			if(responseCounter == 5)
 			{
-				
+				ChatbotMain.print("Hey its nice speaking to you but i really need to go. I hope i was able to help!");
+				ChatbotMain.chatbot.restartChat();
 			}
+			
 		}
-		//access variables	frim other classes
+		//access variables	frOm other classes
 		
 		ChatbotMain.print("Nice talkin to u" + ChatbotMain.chatbot.getUsername() + "!");
 	}
