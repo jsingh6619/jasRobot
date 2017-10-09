@@ -8,6 +8,8 @@ public class Chatbot
 	private ChatbotAbed abed;
 	private ChatbotAbid abid;
 	private ChatbotLord lord;
+	private String last;
+	private int repetition;
 
 	public Chatbot() 
 	{
@@ -17,39 +19,56 @@ public class Chatbot
 		lord = new ChatbotLord();
 		username = "Unknown User";
 		chatting  = true;
+		repetition = 0;
+		last = "";
 	}
-	////Made by Abed, written by Abid
-	public void restartChat() 
+
+	//Made by Abed & written by Abid (10/04/2017)
+	//Modified to function fully by Jasmit (10/05/2017)
+	public void restartChat(String response) 
 	{
 		chatting = true;
 		while(chatting)
-		{
-			ChatbotMain.print("What would you like to talk about");
-			String response = ChatbotMain.getInput();
-			
-			if(jasmit.isTriggered(response)) 
+		{	
+			if(last.equals(response)) 
 			{
+				chatting = false;
+				getJasmit().repeated(response, repetition++);
+			}
+			else if(jasmit.isTriggered(response)) 
+			{
+				last = response;
+				repetition = 0;
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				jasmit.talk(response);
+				getJasmit().talk(response);
 			}
 			else if(abed.isTriggered(response)) 
 			{
+				last = response;
+				repetition = 0;
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				abed.talk(response);
+				getAbed().talk(response);
 			}
 			else if(abid.isTriggered(response))
 			{
+				last = response;
+				repetition = 0;
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				abid.talk(response);
+				getAbid().talk(response);
 			}
 			else if(lord.isTriggered(response)) 
 			{
+				last = response;
+				repetition = 0;
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				lord.talk(response);
+				getLord().talk(response);
 			}
 			else 
 			{
+				last = response;
+				repetition = 0;
 				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
+				response = ChatbotMain.getInput();
 			}
 		}
 	}
@@ -77,13 +96,12 @@ public class Chatbot
 	{
 		return lord;
 	}
-
 	
-	
-	public void startChatting() {
-
+	public void startChatting() 
+	{
 		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
 		username = ChatbotMain.getInput();
-		restartChat();
+		ChatbotMain.print("What would you like to talk about " + username + "?");
+		restartChat(ChatbotMain.getInput());
 	}
 }

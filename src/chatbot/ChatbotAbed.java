@@ -51,7 +51,7 @@ public class ChatbotAbed implements Topic
 			}
 			else
 			{
-				ChatbotMain.print("thats cool i guees. but lets talk bout somethin else");
+				ChatbotMain.print("Thats cool i guees. But lets talk bout something else");
 				response = ChatbotMain.getInput();
 				responseCounter+=1;
 			}
