@@ -4,21 +4,21 @@ public class ChatbotAbid implements Topic{
 	
 	private String[] keywords;
 	private String goodbyeKeyword;
-	private String secretKeyword;
 	private String response;
 	
+	
 	public ChatbotAbid() {
-		String [] temp = {"late","classwork","food"};
+		String [] temp = {"late","classwork","food",""};
 		
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "grade";
 		response = "";
 	}
 	public void talk(String response) {
 		ChatbotMain.print("You're really starting to piss me off");
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
 			//talking to chatbot
+			
 			ChatbotMain.print("I'm going to kill you. Here's a gun we're dueling");
 			
 			ChatbotMain.print("Do you know how to play?");
@@ -56,20 +56,24 @@ public class ChatbotAbid implements Topic{
 					ChatbotMain.print("*puts 0 into your pupilpath*");
 					ChatbotMain.print("Then what do you like?");
 					ChatbotMain.getInput();
+					
 				}
-				if(ChatbotMain.findKeyword(response, "like", 0) >= 0) {
-					int likePsn = response.indexOf("like");
-					String like = response.substring(likePsn+5);
-					ChatbotMain.print("Oh you like " + like + ", that explains why you're single");
-					response = ChatbotMain.getInput();
-				}
-			//interconnectivity
-				
+	
+					if(ChatbotMain.findKeyword(response, "like", 0) >= 0) {
+						int likePsn = response.indexOf("like");
+						String like = response.substring(likePsn+5);
+						ChatbotMain.print("Oh you like " + like + ", that explains why you're single");
+						response = ChatbotMain.getInput();
+					}
+					else {
+						ChatbotMain.print("Alright be like that.");
+					}
 			
-		ChatbotMain.print("You're putting me to sleep and I'm not even real. Talk about something else " + ChatbotMain.chatbot.getUsername() + " !");
-		ChatbotMain.chatbot.startChatting();
+				}
+			
+			ChatbotMain.print("You're putting me to sleep and I'm not even real. Talk about something else " + ChatbotMain.chatbot.getUsername() + " !");
+		
 		}
-	}
 	public boolean isTriggered(String response) {
 		for (int i = 0; i < keywords.length; i++) {
 			//IMPORTANT (on the rubric)
