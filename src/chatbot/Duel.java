@@ -20,8 +20,8 @@ public class Duel extends ChatbotMain{
 	private int d1LastAction = 3;
 	private int d2LastAction = 3;
 	
-	private int dueler1HP = 100;
-	private int dueler2HP = 100;
+	private int dueler1HP = 10;
+	private int dueler2HP = 10;
 	private boolean d1Loaded;
 	private boolean d2Loaded;
 	
@@ -45,12 +45,12 @@ public class Duel extends ChatbotMain{
 
 		
 		
-		boolean d1SaysD2Fair = d1.determineIfOpponentIsFair(d2, 100);
-		boolean d2SaysD1Fair = d2.determineIfOpponentIsFair(d1, 100);
+		boolean d1SaysD2Fair = d1.determineIfOpponentIsFair(d2, 10);
+		boolean d2SaysD1Fair = d2.determineIfOpponentIsFair(d1, 10);
 		
 		//make students implement "determineIfOpponentCheating"  before showing this
-		boolean correctlyDoneD1 = d1.getHP() == 100;
-		boolean correctlyDoneD2 = d2.getHP() == 100;
+		boolean correctlyDoneD1 = d1.getHP() == 10;
+		boolean correctlyDoneD2 = d2.getHP() == 10;
 		
 		if (isFair(correctlyDoneD1, correctlyDoneD2)){
 			
