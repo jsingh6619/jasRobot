@@ -30,9 +30,10 @@ public class Chatbot
 		chatting = true;
 		while(chatting)
 		{	
-			if(last.equals(response)) 
+			if(ChatbotMain.findKeyword(last, response, 0) >= 0) 
 			{
 				chatting = false;
+				last = response;
 				getJasmit().repeated(response, repetition++);
 			}
 			else if(jasmit.isTriggered(response)) 
