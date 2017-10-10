@@ -40,7 +40,7 @@ public class ChatbotJasmit implements Topic {
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 			else if(ChatbotMain.findKeyword(response, "teacher", 0) >= 0) {
-				ChatbotMain.print("My name is Mr. Mister. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. What else do you want to know? ");
+				ChatbotMain.print("My name is Mr. Binoculars. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. What else do you want to know? ");
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 		}
