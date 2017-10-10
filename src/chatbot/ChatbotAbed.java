@@ -53,7 +53,7 @@ public class ChatbotAbed implements Topic
 				
 			}
 		}
-		//access variables	frim other classes
+		//access variables	from other classes
 		
 		ChatbotMain.print("Nice talkin to u" + ChatbotMain.chatbot.getUsername() + "!");
 	}
