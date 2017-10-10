@@ -63,10 +63,11 @@ public class ChatbotJasmit implements Topic {
 		//4 is the length of the array - 1
 		if(repetition < 4) {
 			ChatbotMain.print(repeated[repetition]);
-			response = ChatbotMain.getInput();
+			ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 		}
 		else {
 			ChatbotMain.print("Well it was nice talking to you " + ChatbotMain.chatbot.getUsername());
+			System.exit(0);
 		}
 	}
 }
