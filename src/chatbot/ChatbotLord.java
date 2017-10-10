@@ -4,28 +4,29 @@ public class ChatbotLord implements Topic {
 
 	private String[] keywords;
 	private String goodbyeKeyword;
-	private String secretKeyword;
 	private String response;
+	private String study;
 	
 	public ChatbotLord() {
 
 		String[] temp = {"test","quiz","tests","quizzes","mean","score","scoring","scored"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "long";
 		response = "";
+		study = "";
 	}
 	
 	public void talk(String response) {
 		
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
-			if(ChatbotMain.findKeyword(response, "test", 0) >= 0 || ChatbotMain.findKeyword(response, "tests", 0) >= 0) 
+			if(ChatbotMain.findKeyword(response, "test", 0) >= 0 || ChatbotMain.findKeyword(response, "tests", 0) >= 0 
+					|| ChatbotMain.findKeyword(response, "quiz", 0) >= 0 || ChatbotMain.findKeyword(response, "quizzes", 0) >= 0) 
 			{
 				
 				ChatbotMain.print("SOOO you have concerns about assessments. Why? Do you think you can pass???");
 				response = ChatbotMain.getInput();
 			
-				if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0) 
+				if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0 || ChatbotMain.findKeyword(response, "sure", 0) >= 0) 
 				{
 					ChatbotMain.print("Ha you're funny I doubt it, but do you have any questions on test scoring in the hope of you ever passing? ");
 					
@@ -35,10 +36,12 @@ public class ChatbotLord implements Topic {
 					if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0) 
 					{
 						
-						ChatbotMain.print("Test usually have about 15 to 20 questions. 5 Short Answer and the rest Multiple Choice, sometimes I may make a game for you to complete in a limited amount of time. How about we play a little game?");
+						ChatbotMain.print("Test usually have about 15 to 20 questions. 5 Short Answer and the rest Multiple Choice,"
+								+ " sometimes I may make a game for you to complete in a limited amount of time. How about we play a little game?");
 						response = ChatbotMain.getInput();
 						
-						if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0) 
+						if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0 
+								|| ChatbotMain.findKeyword(response, "sure", 0) >= 0 || ChatbotMain.findKeyword(response, "ok", 0) >= 0) 
 						{
 							guessingGame();
 						}
@@ -46,6 +49,14 @@ public class ChatbotLord implements Topic {
 						ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 					}
 				}
+				else {
+					ChatbotMain.print("How do you study for exams?");
+					study = ChatbotMain.getInput();
+					
+					studying(study);
+					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+				}
+			}
 			
 			else if(ChatbotMain.findKeyword(response, "mean", 0) >= 0) 
 			{
@@ -67,9 +78,6 @@ public class ChatbotLord implements Topic {
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 			
-			//play a guessing game where the chatbot randomly guessing a score they would get, make user guess that number. Also before this ask them some test taking strategies they have
-			//tell them that they're strategies (copied) would work if the guessed score is above 65 and say vice versa if below 65
-			
 			else {
 					ChatbotMain.print("Yeah. That's pretty cool. But there are things I like even more tell me something else");
 					response = ChatbotMain.getInput();
@@ -80,7 +88,7 @@ public class ChatbotLord implements Topic {
 			ChatbotMain.chatbot.startChatting();
 		
 		}
-	}
+
 	
 	public void guessingGame()
 	{
@@ -93,7 +101,7 @@ public class ChatbotLord implements Topic {
 		while(Integer.parseInt(response) != chatGuess) 
 		{
 			if(Integer.parseInt(response) > chatGuess) {
-				ChatbotMain.print("Too high, you really thought you were smarter huh. Guess Again!");
+				ChatbotMain.print("Too high, you really thought you were smart huh. Guess Again!");
 				response = ChatbotMain.getInput();
 			}
 			else {
@@ -104,19 +112,48 @@ public class ChatbotLord implements Topic {
 		
 		if(chatGuess < 65) {
 		ChatbotMain.print("You are correct, I think you'll get a " + chatGuess + " on the first test!, Yes you're going to fail");
+		
+		ChatbotMain.print("How do you even study for exams?");
+		study = ChatbotMain.getInput();
+		
+		studying(study);
 		}
+		
 		else {
-			ChatbotMain.print("You are correct, I think you'll get a " + chatGuess + " on the first test!, Wow you're going to pass be happy");
+			ChatbotMain.print("You are correct, I think you'll get a " + chatGuess + " on the first test!, Wow you're going to pass be happy \\ What other boring stuff do you want to talk about" );
 		}
 	}
 	
+	
 	public void studying(String response) {
-		//will take in the response of what someone does to study
-		//then prints thats why you got this score bc of your strategies 
-		//stores users reply on how they study
-		//or perhaps i could ask what resources do they use to study
 		
+		if(ChatbotMain.findKeyword(response, "study", 0) >= 0) {
+			
+			int studyPsn = response.indexOf("study");
+			String study = response.substring(studyPsn + 6);
+			ChatbotMain.print("The reason why you're going to fail is because you are currently " + study + ", and there are smarter strategies to increase your grade \\What other boring stuff do you want to talk about");
+		}
+		else if(ChatbotMain.findKeyword(response, "study by", 0) >= 0) {
+			int studyPsn = response.indexOf("study by");
+			String study = response.substring(studyPsn + 9);
+			ChatbotMain.print("The reason why you're going to fail is because you are currently " + study + ", and there are smarter strategies to increase your grade \\What other boring stuff do you want to talk about");
+		}
+		else if(ChatbotMain.findKeyword(response, "i", 0) >= 0) {
+			int studyPsn = response.indexOf("i");
+			String study = response.substring(studyPsn + 2);
+			ChatbotMain.print("The reason why you're going to fail is because you " + study + ", and there are smarter strategies to increase your grade \\What other boring stuff do you want to talk about");
+		}
+		else if(ChatbotMain.findKeyword(response, "with", 0) >= 0) {
+			int studyPsn = response.indexOf("with");
+			String study = response.substring(studyPsn + 2);
+			ChatbotMain.print("The reason why you're going to fail is because you use " + study + ", and there are smarter strategies to increase your grade \\What other boring stuff do you want to talk about");
+		}
+		else {
+			String study = response;
+			ChatbotMain.print("The reason why you're going to fail is because you " + study + ", and there are smarter strategies to increase your grade \\What other boring stuff do you want to talk about");
+		}
 	}
+	
 	
 	public boolean isTriggered(String response) {
 		for(int i = 0; i < keywords.length; i++)
