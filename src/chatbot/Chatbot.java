@@ -30,9 +30,10 @@ public class Chatbot
 		chatting = true;
 		while(chatting)
 		{	
-			if(last.equals(response)) 
+			if(ChatbotMain.findKeyword(last, response, 0) >= 0) 
 			{
 				chatting = false;
+				last = response;
 				getJasmit().repeated(response, repetition++);
 			}
 			else if(jasmit.isTriggered(response)) 
@@ -99,9 +100,28 @@ public class Chatbot
 	
 	public void startChatting() 
 	{
-		ChatbotMain.print("Hi! I am an intelligent machine that can respond to your input. Tell me your name.");
-		username = ChatbotMain.getInput();
-		ChatbotMain.print("What would you like to talk about " + username + "?");
-		restartChat(ChatbotMain.getInput());
+		// find a way to check the name is no more than 2 word
+		// Modified by Jasmit - 10/09/2017
+		ChatbotMain.print("Hi! I am Mr. Binoculars. Are you a new student?");
+		String s = ChatbotMain.getInput().toLowerCase();
+			if (ChatbotMain.findKeyword(s, "no", 0) >= 0){
+				ChatbotMain.print("Sorry about that. I have so many students that I didn't recognize you. You should participate more. Tell me your name.");
+				username = ChatbotMain.getInput();
+				ChatbotMain.print("Ohhhh. Yeah I see your name now. So what do you want to talk about " + username+ "?");
+				restartChat(ChatbotMain.getInput());
+			}
+			else if (ChatbotMain.findKeyword(s.toLowerCase(), "yes", 0) >= 0){
+				ChatbotMain.print("It seems you haven't been updated onto my roster. Tell me your name?");
+				username = ChatbotMain.getInput();
+				ChatbotMain.print("Okay. I've noted it down so I'll ask my supervisor later. So what do you want to talk about " + username+ "?");
+				restartChat(ChatbotMain.getInput());
+			}
+			
+			else {
+				ChatbotMain.print("It'll be easier if you answer with a yes or no. Just tell me your name and I'll figure it out.");
+				username = ChatbotMain.getInput();
+				ChatbotMain.print("You aren't on my roster, so you must be a new student, " + username + ". What do you want to know about?");
+				restartChat(ChatbotMain.getInput());
+			}
 	}
 }
