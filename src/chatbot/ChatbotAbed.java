@@ -55,6 +55,7 @@ public class ChatbotAbed implements Topic
 			else
 			{
 				ChatbotMain.print("Please pick policy or homework help");
+				ChatbotMain.getInput();
 				responseCounter++;
 				if(responseCounter == 5)
 				{
