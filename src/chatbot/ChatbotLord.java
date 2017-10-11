@@ -48,6 +48,13 @@ public class ChatbotLord implements Topic {
 						
 						ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 					}
+					else 
+					{
+						ChatbotMain.print("Ooooo you think you smart huh");
+						guessingGame();
+						
+						ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+					}
 				}
 				else {
 					ChatbotMain.print("How do you study for exams?");
