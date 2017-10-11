@@ -28,17 +28,17 @@ public class CharacterA implements Dueler{
 	public int getAction(Object caller) {
 		if(caller instanceof Duel) {
 			if(loaded == false) {
-				if(HP > 50)
-					if(Math.random() > .75) {
+				if(HP > 30)
+					if(Math.random() > .60) {
 						loaded = true;
 						return 0;
 					}
 					else {
 						return 2;
 					}
-				if(HP < 50)
+				if(HP < 10)
 				{
-					if(Math.random() > .25) {
+					if(Math.random() > .40) {
 						loaded = true;
 						return 0;
 					}
@@ -47,7 +47,7 @@ public class CharacterA implements Dueler{
 					}
 				}
 				else {
-					if(Math.random() > .25) {
+					if(Math.random() > .40) {
 						loaded = true;
 						return 2;
 					}
@@ -57,8 +57,8 @@ public class CharacterA implements Dueler{
 					}
 				}
 			}else {
-				if(HP > 50) {
-					if(Math.random() > .25) {
+				if(HP > 20) {
+					if(Math.random() > .40) {
 						loaded = false;
 						return 1;
 					}
@@ -66,8 +66,8 @@ public class CharacterA implements Dueler{
 						return 2;
 					}
 				}
-				if(HP < 50) {
-					if(Math.random() > .75) {
+				if(HP < 10) {
+					if(Math.random() > .60) {
 						return 2;
 					}
 					else {
@@ -77,7 +77,7 @@ public class CharacterA implements Dueler{
 				}
 			}
 		}
-		return 2;
+		return 3;
 	}
 	public void hit(Object caller) {
 		HP -= 10;

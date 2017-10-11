@@ -10,14 +10,13 @@ public class ChatbotAbed implements Topic
 
 	public ChatbotAbed() 
 	{
-		String[] temp = {"homework","extenstion","projects"};
+		String[] temp = {"homework"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
-		secretKeyword = "incomplete";
 		response = " ";
 		responseCounter = 0;
 	}
-
+	//public void 
 	public boolean isTriggered(String response) 
 	{
 		for(int i = 0; i< keywords.length;i++)
@@ -30,32 +29,48 @@ public class ChatbotAbed implements Topic
 		}
 		return false;
 	}
-
+	private void talkPolicy() 
+	{
+		ChatbotMain.print("So what do you want to learn about? Weight? How long does homework take to do?");
+		
+		
+	}
+	private void giveResources() 
+	{
+		
+	}
 	public void talk(String response) 
 	{
-		ChatbotMain.print("Hey! So did you do your work?");
+		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework?");
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1)
-		{	
-			if(ChatbotMain.findKeyword(response, secretKeyword, 0)>=0)
+		{
+			if(ChatbotMain.getInput().equals("policy"))
 			{
-				ChatbotMain.print("What happened?");
-				response = ChatbotMain.getInput();
-				responseCounter+=1;
+				talkPolicy();
+			}
+			else if(ChatbotMain.getInput().equals("help"))
+			{
+				giveResources();
 			}
 			else
 			{
-				ChatbotMain.print("Thats cool i guees. But lets talk bout something else");
-				response = ChatbotMain.getInput();
-				responseCounter+=1;
+				ChatbotMain.print("Please pick policy or homework help");
+				responseCounter++;
+				if(responseCounter == 5)
+				{
+					ChatbotMain.print("I am a nice guy but Now im seriously mad. Im so mad im changing this conversation ALL TOGETHER");
+					ChatbotMain.chatbot.restartChat("Food");
+				}
 			}
-			if(responseCounter == 1)
-			{
-				
-			}
+			
+		
 		}
-		//access variables	from other classes
+		//access variables	frOm other classes
 		
 		ChatbotMain.print("Nice talkin to u" + ChatbotMain.chatbot.getUsername() + "!");
 	}
+	
+	
 
 }
+
