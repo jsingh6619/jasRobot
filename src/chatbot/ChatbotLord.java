@@ -28,22 +28,21 @@ public class ChatbotLord implements Topic {
 				ChatbotMain.print("SOOO you have concerns about assessments. Why? Do you think you can pass???");
 				response = ChatbotMain.getInput();
 			
-				if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0 || ChatbotMain.findKeyword(response, "sure", 0) >= 0) 
+				if(ChatbotMain.yesInterpreter(response)) 
 				{
 					ChatbotMain.print("Ha you're funny I doubt it, but do you have any questions on test scoring in the hope of you ever passing? ");
 					
 					response = ChatbotMain.getInput();
 					
 					
-					if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0) 
+					if(ChatbotMain.yesInterpreter(response)) 
 					{
 						
 						ChatbotMain.print("Test usually have about 15 to 20 questions. 5 Short Answer and the rest Multiple Choice,"
 								+ " sometimes I may make a game for you to complete in a limited amount of time. How about we play a little game?");
 						response = ChatbotMain.getInput();
 						
-						if(ChatbotMain.findKeyword(response, "yes", 0) >= 0 || ChatbotMain.findKeyword(response, "yea", 0) >= 0 
-								|| ChatbotMain.findKeyword(response, "sure", 0) >= 0 || ChatbotMain.findKeyword(response, "ok", 0) >= 0) 
+						if(ChatbotMain.yesInterpreter(response)) 
 						{
 							guessingGame();
 						}

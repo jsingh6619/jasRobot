@@ -33,11 +33,11 @@ public class ChatbotAbed implements Topic
 	{
 		ChatbotMain.print("Hey has your day been good or bad" +  ChatbotMain.chatbot.getUsername());
 		emotion = ChatbotMain.getInput();
-		if(ChatbotMain.yesInterperter(emotion))
+		if(ChatbotMain.yesInterpreter(emotion))
 		{
 			ChatbotMain.print("Good to hear");
 		}
-		else if(ChatbotMain.noInterperter(emotion))
+		else if(ChatbotMain.noInterpreter(emotion))
 		{
 			ChatbotMain.print("I hope your day gets better.");
 		}
