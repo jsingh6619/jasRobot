@@ -12,7 +12,7 @@ public class CharacterB implements Dueler
 
     public CharacterB()
     {
-        name = "Egghead";
+        name = "Some Ugly Kid";
     } 
     public String getName()
     {
