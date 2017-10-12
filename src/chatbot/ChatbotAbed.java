@@ -7,6 +7,7 @@ public class ChatbotAbed implements Topic
 	private String secretKeyword;
 	private String response;
 	private int responseCounter;
+	private String emotion;
 
 	public ChatbotAbed() 
 	{
@@ -28,6 +29,19 @@ public class ChatbotAbed implements Topic
 		}
 		return false;
 	}
+	private void greeter()
+	{
+		ChatbotMain.print("Hey has your day been good or bad" +  ChatbotMain.chatbot.getUsername());
+		emotion = ChatbotMain.getInput();
+		if(ChatbotMain.yesInterperter(emotion))
+		{
+			ChatbotMain.print("Good to hear");
+		}
+		else if(ChatbotMain.noInterperter(emotion))
+		{
+			ChatbotMain.print("I hope your day gets better.");
+		}
+	}
 	private void talkPolicy(String s) 
 	{
 		ChatbotMain.print("So what do you want to learn about? Weight? How long does homework take to do?");
@@ -42,7 +56,7 @@ public class ChatbotAbed implements Topic
 	private void giveResources(String s) 
 	{
 		ChatbotMain.print("First of all are you even doing your homework??");
-		if(ChatbotMain.findKeyword(response, "yes",  0) >=0 )
+		if(ChatbotMain.yesInterperter(ChatbotMain.getInput()))
 		{
 			annoyedHelper();
 		}
@@ -50,6 +64,7 @@ public class ChatbotAbed implements Topic
 	}
 	public void talk(String response) 
 	{
+		greeter();
 		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework?");
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1)
 		{
@@ -74,7 +89,6 @@ public class ChatbotAbed implements Topic
 				}
 			}
 			
-		
 		}
 		//access variables	frOm other classes
 		
