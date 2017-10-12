@@ -56,7 +56,7 @@ public class ChatbotAbed implements Topic
 	private void giveResources(String s) 
 	{
 		ChatbotMain.print("First of all are you even doing your homework??");
-		if(ChatbotMain.yesInterperter(ChatbotMain.getInput()))
+		if(ChatbotMain.yesInterpreter(ChatbotMain.getInput()))
 		{
 			annoyedHelper();
 		}
@@ -89,6 +89,7 @@ public class ChatbotAbed implements Topic
 				}
 			}
 			
+		
 		}
 		//access variables	frOm other classes
 		
