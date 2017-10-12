@@ -51,19 +51,19 @@ public class Chatbot
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				getAbed().talk(response);
 			}
-			else if(abid.isTriggered(response))
-			{
-				last = response;
-				repetition = 0;
-				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				getAbid().talk(response);
-			}
 			else if(lord.isTriggered(response)) 
 			{
 				last = response;
 				repetition = 0;
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				getLord().talk(response);
+			}
+			else if(abid.isTriggered(response))
+			{
+				last = response;
+				repetition = 0;
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				getAbid().talk(response);
 			}
 			else 
 			{

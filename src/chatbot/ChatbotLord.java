@@ -7,9 +7,10 @@ public class ChatbotLord implements Topic {
 	private String response;
 	private String study;
 	
-	public ChatbotLord() {
+	public ChatbotLord() 
+	{
 
-		String[] temp = {"test","quiz","tests","quizzes","mean","score","scoring","scored"};
+		String[] temp = {"test","quiz","tests","quizzes","mean","score","scored"};
 		keywords = temp;
 		goodbyeKeyword = "bye";
 		response = "";
@@ -19,6 +20,7 @@ public class ChatbotLord implements Topic {
 	public void talk(String response) {
 		
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1) {
+		
 			if(ChatbotMain.findKeyword(response, "test", 0) >= 0 || ChatbotMain.findKeyword(response, "tests", 0) >= 0 
 					|| ChatbotMain.findKeyword(response, "quiz", 0) >= 0 || ChatbotMain.findKeyword(response, "quizzes", 0) >= 0) 
 			{
