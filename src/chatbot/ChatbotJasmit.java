@@ -9,6 +9,7 @@ public class ChatbotJasmit implements Topic {
 	private String goodbyeKeyword;
 	private String secretKeyword;
 	private String[] repeated;
+	private int favorite;
 
 	public ChatbotJasmit() {
 		String[] temp = {"policy", "learn", "about", "teacher", "class", "course"};
@@ -17,6 +18,7 @@ public class ChatbotJasmit implements Topic {
 		secretKeyword = "informative";
 		String[] pear = {"I have no means of clarifying it further. Please ask about something else.", "We already discussed that. So what else do you want to know more about?", "I think you just learned copy and paste. Lets try typing something else.", "Stop wasting our time. I have work to grade.", "This is the last straw. If you dont stop, say goodbye to your grade."};
 		repeated = pear;
+		favorite = 0;
 	}
 
 	@Override
@@ -27,18 +29,32 @@ public class ChatbotJasmit implements Topic {
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 			else if(ChatbotMain.findKeyword(response, "policy", 0) >= 0) {
-				ChatbotMain.print("My policy is that every student has their own way of learning, so I do not have any standards set right now. However, at the end of the year, a final will be given in which the student has to create a program on a specific prompt. If a student fails to complete the program with all the requirements, then they will have to repeat this course. Do my policies sound fair?");
+				ChatbotMain.print(policy(" "));
 				if(ChatbotMain.findKeyword(ChatbotMain.getInput().toLowerCase(), "yes", 0) >= 0){
-					ChatbotMain.print("Excellent! What else do you want to know about?");
+					favorite++;
+					ChatbotMain.print("Excellent! You will become one of my best students. What policy do you want me to have?");
+					ChatbotMain.print(policy(ChatbotMain.getInput()));
+					ChatbotMain.print("What else do you want to know?");
 					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 				}
 				else {
-					ChatbotMain.chatbot.restartChat("bye");
+					favorite++;
+					ChatbotMain.print("Wow, you are one of the most honest students I have ever taught. What policy do you want me to have?");
+					ChatbotMain.print(policy(ChatbotMain.getInput()));
+					ChatbotMain.print("What else do you want to know?");
+					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 				}
 			}
 			else if(ChatbotMain.findKeyword(response, "learn", 0) >= 0 || ChatbotMain.findKeyword(response, "about", 0) >= 0 || ChatbotMain.findKeyword(response, "class", 0) >= 0 || ChatbotMain.findKeyword(response, "course", 0) >= 0 ) {
 				ChatbotMain.print("In this class, I will be teaching the students Computer Science. What else do you want to know?");
-				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+				if(ChatbotMain.findKeyword(ChatbotMain.getInput().toLowerCase(), "nothing", 0) >= 0){
+					favorite--;
+					ChatbotMain.print("Well, you need to ask about something. This is the reason I was created. What do you want to know?");
+					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+				}
+				else {
+					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+				}
 			}
 			else if(ChatbotMain.findKeyword(response, "teacher", 0) >= 0) {
 				ChatbotMain.print("My name is Mr. Binoculars. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. What else do you want to know? ");
@@ -71,8 +87,30 @@ public class ChatbotJasmit implements Topic {
 			ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 		}
 		else {
-			ChatbotMain.print("Well it was nice talking to you " + ChatbotMain.chatbot.getUsername());
+			ChatbotMain.print("Well it was nice talking to you " + ChatbotMain.chatbot.getUsername() + favoriteStudent(favorite));
 			System.exit(0);
+		}
+	}
+	
+	public String favoriteStudent(int num) {
+		String respinse = "";
+		if (num > 3) {
+			respinse = "For being one of the best student, I will give you extra credit.";
+		}
+		else{
+			respinse = "You weren't as amazing as I hoped, " + ChatbotMain.chatbot.getUsername() + ".";
+		}
+		return respinse;
+	}
+	
+	public String policy(String some) {
+		String respinse = "My policy is that every student has their own way of learning, so I do not have any standards set right now. However, at the end of the year, a final will be given in which the student has to create a program on a specific prompt. If a student fails to complete the program with all the requirements, then they will have to repeat this course. Do my policies sound fair?\"";
+		if(ChatbotMain.findKeyword(some, " ", 0) >= 0) {
+			return respinse;
+		}
+		else{
+			respinse += "In addition, I will " + some;
+			return respinse;
 		}
 	}
 }

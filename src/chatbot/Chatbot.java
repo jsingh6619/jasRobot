@@ -25,7 +25,7 @@ public class Chatbot
 	}
 
 	//Made by Abed & written by Abid (10/04/2017)
-	//Modified to function fully by Jasmit (10/05/2017)
+	//Modified by Jasmit (10/05/2017)
 	public void restartChat(String response) 
 	{
 		chatting = true;
