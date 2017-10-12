@@ -31,7 +31,7 @@ public class ChatbotAbed implements Topic
 	}
 	private void greeter()
 	{
-		ChatbotMain.print("Hey has your day been good or bad" +  ChatbotMain.chatbot.getUsername());
+		ChatbotMain.print("Hey has your day been good or bad" + " " + ChatbotMain.chatbot.getUsername());
 		emotion = ChatbotMain.getInput();
 		if(ChatbotMain.yesInterpreter(emotion))
 		{
@@ -51,42 +51,76 @@ public class ChatbotAbed implements Topic
 	{
 		ChatbotMain.print("So what do you want to learn about? Weight? How long does homework take to do?");
 		s = ChatbotMain.getInput();
+		if(ChatbotMain.findKeyword(s, "weight",  0) >=0 )
+		{
+			ChatbotMain.print("Homework is worth 20% of your grade");
+		}
+		else if(ChatbotMain.findKeyword(s, "long",  0) >=0 )
+		{
+			ChatbotMain.print("Homework takes 30 minutes to do. So please do it.");
+		}
+		else
+		{
+			ChatbotMain.print("Ask about weight or length of homework.");
+		}
+		ChatbotMain.print("You can say bye and leave or talk about classwork or tests. You can also get the general about page.");
+		ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 		
+	
 	}
 	private void annoyedHelper() 
 	{
 		ChatbotMain.print("I expected better. You have to work harder.");
 		if(ChatbotMain.yesInterpreter(emotion))
 		{
-			ChatbotMain.print("YOur day should not be going so well if you ain't working hard.");
+			ChatbotMain.print("Your day should not be going so well if you ain't working hard.");
 		}
 		if(ChatbotMain.noInterpreter(emotion))
 		{
 			ChatbotMain.print("Of course your day is not going well. If you did your homework then maybe it would have gone better.");
 		}
 	}
-	private void giveResources(String s) 
+	private void compationateHelper()
+	{
+		ChatbotMain.print("I am proud you are doing your work. Keep it up.");
+		if(ChatbotMain.yesInterpreter(emotion))
+		{
+			ChatbotMain.print("It is awesome your having a good day. I bet it is gonna be better with my help!");
+		}
+		if(ChatbotMain.noInterpreter(emotion))
+		{
+			ChatbotMain.print("Don't worry if your day hasn't gone so well. Maybe with my help, your day is gonna get better.");
+		}
+	}
+	private void giveResources(String response) 
 	{
 		ChatbotMain.print("First of all are you even doing your homework??");
-		if(ChatbotMain.noInterpreter(ChatbotMain.getInput()))
+		response  = ChatbotMain.getInput();
+		if(ChatbotMain.noInterpreter(response))
 		{
 			annoyedHelper();
 		}
-		ChatbotMain.print("Well tell me are you struggling with Git or java concepts?");
-		s = ChatbotMain.getInput();
-		if(ChatbotMain.findKeyword(s, "git",  0) >=0 )
+		if(ChatbotMain.yesInterpreter(response))
 		{
-			ChatbotMain.print("Well I hope this helps! https://git-scm.com/docs ");
+			compationateHelper();
 		}
-		else if(ChatbotMain.findKeyword(s, "java",  0) >=0 )
+		ChatbotMain.print("Well tell me are you struggling with git or java concepts?");
+		response = ChatbotMain.getInput();
+		if(response.contains("java") )
 		{
-			ChatbotMain.print("Use this.http://introcs.cs.princeton.edu/java/11cheatsheet/");
+			ChatbotMain.print("Well I hope this helps! go to tutorialspoint.com/java/ ");
+		}
+		else if(response.contains("git"))
+		{
+			
+			ChatbotMain.print("Well I hope this helps! go to git-scm.com/docs ");
 		}
 		else
 		{
 			ChatbotMain.print("Please pick java or git.");
 		}
-		
+		ChatbotMain.print("You can say bye and leave or talk about classwork or tests. You can also get the general about page.");
+		ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 
 	}
 	public void talk(String response) 
