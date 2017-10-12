@@ -17,7 +17,7 @@ public class ChatbotMain{
 	 * return the index of the keyword after startPsn that is isolated and has no negotiations or -1 otherwise
 	 */
 	////Created by Abed
-	public static boolean yesInterperter(String s) {
+	public static boolean yesInterpreter(String s) {
 		String [] yessir = {"yes","sure","okay","yeet","yeah","yea","good" };
 		String yes = s.toLowerCase();
 		for(int i = 0; i < yessir.length;i++) {
@@ -32,7 +32,7 @@ public class ChatbotMain{
 		
 	}
 	///// created by abed 
-    public static boolean noInterperter(String s) {
+    public static boolean noInterpreter(String s) {
 		String [] nosir = {"no","naw","nada","bad"};
 		String no = s.toLowerCase();
 		for(int i = 0; i < nosir.length;i++) {
