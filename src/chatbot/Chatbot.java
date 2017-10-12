@@ -37,19 +37,19 @@ public class Chatbot
 				last = response;
 				getJasmit().repeated(response, repetition++);
 			}
-			else if(lord.isTriggered(response)) 
-			{
-				last = response;
-				repetition = 0;
-				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				getLord().talk(response);
-			}
 			else if(jasmit.isTriggered(response)) 
 			{
 				last = response;
 				repetition = 0;
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				getJasmit().talk(response);
+			}
+			else if(lord.isTriggered(response)) 
+			{
+				last = response;
+				repetition = 0;
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				getLord().talk(response);
 			}
 			else if(abed.isTriggered(response)) 
 			{

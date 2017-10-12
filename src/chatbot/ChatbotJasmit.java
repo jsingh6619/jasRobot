@@ -30,6 +30,7 @@ public class ChatbotJasmit implements Topic {
 			}
 			else if(ChatbotMain.findKeyword(response, "policy", 0) >= 0) {
 				ChatbotMain.print(policy(" "));
+				ChatbotMain.print("Do my policies sound fair");
 				if(ChatbotMain.findKeyword(ChatbotMain.getInput().toLowerCase(), "yes", 0) >= 0){
 					favorite++;
 					ChatbotMain.print("Excellent! You will become one of my best students. What policy do you want me to have?");
@@ -47,14 +48,7 @@ public class ChatbotJasmit implements Topic {
 			}
 			else if(ChatbotMain.findKeyword(response, "learn", 0) >= 0 || ChatbotMain.findKeyword(response, "about", 0) >= 0 || ChatbotMain.findKeyword(response, "class", 0) >= 0 || ChatbotMain.findKeyword(response, "course", 0) >= 0 ) {
 				ChatbotMain.print("In this class, I will be teaching the students Computer Science. What else do you want to know?");
-				if(ChatbotMain.findKeyword(ChatbotMain.getInput().toLowerCase(), "nothing", 0) >= 0){
-					favorite--;
-					ChatbotMain.print("Well, you need to ask about something. This is the reason I was created. What do you want to know?");
-					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
-				}
-				else {
-					ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
-				}
+				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 			else if(ChatbotMain.findKeyword(response, "teacher", 0) >= 0) {
 				ChatbotMain.print("My name is Mr. Binoculars. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. What else do you want to know? ");
@@ -65,7 +59,8 @@ public class ChatbotJasmit implements Topic {
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
 		}
-		ChatbotMain.print("It was nice talking with you " + ChatbotMain.chatbot.getUsername() + "!");
+		ChatbotMain.print("Well it was nice talking to you " + ChatbotMain.chatbot.getUsername() + (". ") + favoriteStudent(favorite));
+		System.exit(0);
 		//access variables from other classes
 	}
 
@@ -104,7 +99,7 @@ public class ChatbotJasmit implements Topic {
 	}
 	
 	public String policy(String some) {
-		String respinse = "My policy is that every student has their own way of learning, so I do not have any standards set right now. However, at the end of the year, a final will be given in which the student has to create a program on a specific prompt. If a student fails to complete the program with all the requirements, then they will have to repeat this course. Do my policies sound fair?\"";
+		String respinse = "My policy is that every student has their own way of learning, so I do not have any standards set right now. However, at the end of the year, a final will be given in which the student has to create a program on a specific prompt. If a student fails to complete the program with all the requirements, then they will have to repeat this course.";
 		if(ChatbotMain.findKeyword(some, " ", 0) >= 0) {
 			return respinse;
 		}
