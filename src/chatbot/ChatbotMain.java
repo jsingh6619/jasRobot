@@ -16,6 +16,35 @@ public class ChatbotMain{
 	/**
 	 * return the index of the keyword after startPsn that is isolated and has no negotiations or -1 otherwise
 	 */
+	////Created by Abed
+	public static boolean yesInterperter(String s) {
+		String [] yessir = {"yes","sure","okay","yeet","yeah","yea" };
+		String yes = s.toLowerCase();
+		for(int i = 0; i < yessir.length;i++) {
+			if(yes.equals(yessir[i])) {
+				
+				return true;
+				
+			}
+		}
+		
+		return false;
+		
+	}
+	///// created by abed 
+    public static boolean noInterperter(String s) {
+		String [] nosir = {"no","naw","nada"};
+		String no = s.toLowerCase();
+		for(int i = 0; i < nosir.length;i++) {
+			if(no.equals(nosir[i])) {
+
+				return true;
+				
+			}
+		}
+		return false;
+		
+	}
 	public static int findKeyword(String searchString, String keyword, int startPsn) {
 		//make lowercase
 		searchString = searchString.toLowerCase();
