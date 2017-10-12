@@ -32,7 +32,7 @@ public class ChatbotAbid implements Topic{
 			
 			ChatbotMain.print("Do you know how to play?");
 			response = ChatbotMain.getInput();
-			if(ChatbotMain.findKeyword(response, "yes", 0) >= 0){
+			if(ChatbotMain.yesInterpreter(response)){
 				ChatbotMain.print("Sure you do. Type \"0\" to load \"1\" to shoot an \"2\" to guard");
 			}
 			else {
@@ -78,7 +78,7 @@ public class ChatbotAbid implements Topic{
 			
 			ChatbotMain.print("Do you like this class?");
 			response = ChatbotMain.getInput();
-				if(ChatbotMain.findKeyword(response, "yes", 0) >= 0){
+				if(ChatbotMain.yesInterpreter(response)){
 					ChatbotMain.print("You better like this class");
 					ChatbotMain.print("What else do you like?");
 					ChatbotMain.getInput();
