@@ -44,6 +44,10 @@ public class ChatbotJasmit implements Topic {
 				ChatbotMain.print("My name is Mr. Binoculars. I have been teaching this class for the past 2 days. I am a very nice teacher concerning homework, but dont take my kindness for granted. In case you do bad on a quiz or a quiz, get ready to be riducled and mocked. Under any circumstance, do not mess up classwork. I will get so furious, I will hold you back for a couple of years. What else do you want to know? ");
 				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 			}
+			else {
+				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
+				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+			}
 		}
 		ChatbotMain.print("It was nice talking with you " + ChatbotMain.chatbot.getUsername() + "!");
 		//access variables from other classes

@@ -37,6 +37,13 @@ public class Chatbot
 				last = response;
 				getJasmit().repeated(response, repetition++);
 			}
+			else if(lord.isTriggered(response)) 
+			{
+				last = response;
+				repetition = 0;
+				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
+				getLord().talk(response);
+			}
 			else if(jasmit.isTriggered(response)) 
 			{
 				last = response;
@@ -51,13 +58,6 @@ public class Chatbot
 				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
 				getAbed().talk(response);
 			}
-			else if(lord.isTriggered(response)) 
-			{
-				last = response;
-				repetition = 0;
-				chatting = false;//exits the while loop. IMPORTANT you get graded for this!
-				getLord().talk(response);
-			}
 			else if(abid.isTriggered(response))
 			{
 				last = response;
@@ -69,8 +69,7 @@ public class Chatbot
 			{
 				last = response;
 				repetition = 0;
-				ChatbotMain.print("Uhhhhh, I'm not sure how to respond to that right now. Lets talk about something else. Do you have any questions about the homework, classwork, tests/quizzes, of the class?");
-				response = ChatbotMain.getInput();
+				getJasmit().talk(response);
 			}
 		}
 	}
