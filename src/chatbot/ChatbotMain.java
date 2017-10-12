@@ -18,11 +18,8 @@ public class ChatbotMain{
 	 */
 	////Created by Abed 
 	public static boolean yesInterpreter(String s) {
-<<<<<<< HEAD
-		String [] yessir = {"yes","sure","okay","yeet","yeah","yea","good", };
-=======
 		String [] yessir = {"yes","sure","okay","yeet","yeah","yea","good","ok"};
->>>>>>> branch 'master' of https://github.com/jsingh6619/jasRobot.git
+
 		String yes = s.toLowerCase();
 		for(int i = 0; i < yessir.length;i++) {
 			if(yes.equals(yessir[i])) {
