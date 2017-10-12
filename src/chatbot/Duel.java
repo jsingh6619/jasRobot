@@ -56,10 +56,6 @@ public class Duel extends ChatbotMain{
 			
 			if (d1SaysD2Fair == correctlyDoneD2 && d2SaysD1Fair == correctlyDoneD1){ 
 				//print a taunt that is different than last time
-				pause(2000);
-				System.out.println("You're gonna Git it now");
-		    	System.out.println("YOURE GOING DOWN. JUST LIKE YOUR AVERAGE.");
-				pause(2000);
 			boolean winner = startFighting();
 			return winner;
 			}else{

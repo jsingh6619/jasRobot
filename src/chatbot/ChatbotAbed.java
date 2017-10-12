@@ -41,6 +41,11 @@ public class ChatbotAbed implements Topic
 		{
 			ChatbotMain.print("I hope your day gets better.");
 		}
+		else
+		{
+			ChatbotMain.print("Umm can u say good or bad");
+			emotion = ChatbotMain.getInput();
+		}
 	}
 	private void talkPolicy(String s) 
 	{
@@ -65,7 +70,7 @@ public class ChatbotAbed implements Topic
 	public void talk(String response) 
 	{
 		greeter();
-		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework?");
+		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework? ");
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1)
 		{
 			response = ChatbotMain.getInput();
@@ -85,7 +90,7 @@ public class ChatbotAbed implements Topic
 				if(responseCounter == 5)
 				{
 					ChatbotMain.print("I am a nice guy but your not getting help.");
-					ChatbotMain.chatbot.restartChat("Food");
+					ChatbotMain.chatbot.restartChat("food");
 				}
 			}
 			
@@ -94,6 +99,7 @@ public class ChatbotAbed implements Topic
 		//access variables	frOm other classes
 		
 		ChatbotMain.print("Nice talkin to u" + ChatbotMain.chatbot.getUsername() + "!");
+		ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 	}
 	
 	
