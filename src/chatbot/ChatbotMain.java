@@ -16,9 +16,9 @@ public class ChatbotMain{
 	/**
 	 * return the index of the keyword after startPsn that is isolated and has no negotiations or -1 otherwise
 	 */
-	////Created by Abed
+	////Created by Abed 
 	public static boolean yesInterpreter(String s) {
-		String [] yessir = {"yes","sure","okay","yeet","yeah","yea","good","ok" };
+		String [] yessir = {"yes","sure","okay","yeet","yeah","yea","good","ok"};
 		String yes = s.toLowerCase();
 		for(int i = 0; i < yessir.length;i++) {
 			if(yes.equals(yessir[i])) {
