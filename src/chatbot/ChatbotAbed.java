@@ -16,7 +16,6 @@ public class ChatbotAbed implements Topic
 		response = " ";
 		responseCounter = 0;
 	}
-	//public void 
 	public boolean isTriggered(String response) 
 	{
 		for(int i = 0; i< keywords.length;i++)
@@ -29,28 +28,39 @@ public class ChatbotAbed implements Topic
 		}
 		return false;
 	}
-	private void talkPolicy() 
+	private void talkPolicy(String s) 
 	{
 		ChatbotMain.print("So what do you want to learn about? Weight? How long does homework take to do?");
+		s = ChatbotMain.getInput();
+		
+	}
+	private void annoyedHelper() 
+	{
 		
 		
 	}
-	private void giveResources() 
+	private void giveResources(String s) 
 	{
-		
+		ChatbotMain.print("First of all are you even doing your homework??");
+		if(ChatbotMain.findKeyword(response, "yes",  0) >=0 )
+		{
+			annoyedHelper();
+		}
+
 	}
 	public void talk(String response) 
 	{
 		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework?");
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1)
 		{
-			if(ChatbotMain.getInput().equals("policy"))
+			response = ChatbotMain.getInput();
+			if(ChatbotMain.findKeyword(response, "policy",  0) >=0 )
 			{
-				talkPolicy();
+				talkPolicy(response);
 			}
-			else if(ChatbotMain.getInput().equals("help"))
+			else if(ChatbotMain.findKeyword(response, "homework help", 0) >= 0)
 			{
-				giveResources();
+				giveResources(response);
 			}
 			else
 			{
@@ -59,7 +69,7 @@ public class ChatbotAbed implements Topic
 				responseCounter++;
 				if(responseCounter == 5)
 				{
-					ChatbotMain.print("I am a nice guy but Now im seriously mad. Im so mad im changing this conversation ALL TOGETHER");
+					ChatbotMain.print("I am a nice guy but your not getting help.");
 					ChatbotMain.chatbot.restartChat("Food");
 				}
 			}
@@ -74,4 +84,3 @@ public class ChatbotAbed implements Topic
 	
 
 }
-
