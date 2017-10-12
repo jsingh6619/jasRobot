@@ -102,7 +102,7 @@ public class Chatbot
 	{
 		// find a way to check the name is no more than 2 word
 		// Modified by Jasmit - 10/09/2017
-		ChatbotMain.print("Hi! I am Mr. Binoculars. Are you a new student?");
+		ChatbotMain.print("Hi! I am Mr. Binoculars and a rhombus. Are you a new student?");
 		String s = ChatbotMain.getInput().toLowerCase();
 			if (ChatbotMain.findKeyword(s, "no", 0) >= 0){
 				ChatbotMain.print("Sorry about that. I have so many students that I didn't recognize you. You should participate more. Tell me your name.");

@@ -55,25 +55,47 @@ public class ChatbotAbed implements Topic
 	}
 	private void annoyedHelper() 
 	{
-		
-		
+		ChatbotMain.print("I expected better. You have to work harder.");
+		if(ChatbotMain.yesInterpreter(emotion))
+		{
+			ChatbotMain.print("YOur day should not be going so well if you ain't working hard.");
+		}
+		if(ChatbotMain.noInterpreter(emotion))
+		{
+			ChatbotMain.print("Of course your day is not going well. If you did your homework then maybe it would have gone better.");
+		}
 	}
 	private void giveResources(String s) 
 	{
 		ChatbotMain.print("First of all are you even doing your homework??");
-		if(ChatbotMain.yesInterpreter(ChatbotMain.getInput()))
+		if(ChatbotMain.noInterpreter(ChatbotMain.getInput()))
 		{
 			annoyedHelper();
 		}
+		ChatbotMain.print("Well tell me are you struggling with Git or java concepts?");
+		s = ChatbotMain.getInput();
+		if(ChatbotMain.findKeyword(s, "git",  0) >=0 )
+		{
+			ChatbotMain.print("Well I hope this helps! https://git-scm.com/docs ");
+		}
+		else if(ChatbotMain.findKeyword(s, "java",  0) >=0 )
+		{
+			ChatbotMain.print("Use this.http://introcs.cs.princeton.edu/java/11cheatsheet/");
+		}
+		else
+		{
+			ChatbotMain.print("Please pick java or git.");
+		}
+		
 
 	}
 	public void talk(String response) 
 	{
 		greeter();
-		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework? ");
+		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework?");
+		response = ChatbotMain.getInput();
 		while(ChatbotMain.findKeyword(response, goodbyeKeyword, 0) == -1)
 		{
-			response = ChatbotMain.getInput();
 			if(ChatbotMain.findKeyword(response, "policy",  0) >=0 )
 			{
 				talkPolicy(response);
@@ -84,8 +106,8 @@ public class ChatbotAbed implements Topic
 			}
 			else
 			{
+				response = ChatbotMain.getInput();
 				ChatbotMain.print("Please pick policy or homework help");
-				ChatbotMain.getInput();
 				responseCounter++;
 				if(responseCounter == 5)
 				{
@@ -98,10 +120,7 @@ public class ChatbotAbed implements Topic
 		}
 		//access variables	frOm other classes
 		
-		ChatbotMain.print("Nice talkin to u" + ChatbotMain.chatbot.getUsername() + "!");
+		ChatbotMain.print("Nice talkin to u" + ChatbotMain.chatbot.getUsername());
 		ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
 	}
-	
-	
-
 }
