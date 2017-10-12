@@ -70,10 +70,9 @@ public class ChatbotAbid implements Topic{
 						ChatbotMain.print("Alright be like that.");
 					}
 			
-				}
-			
 			ChatbotMain.print("You're putting me to sleep and I'm not even real. Talk about something else " + ChatbotMain.chatbot.getUsername() + " !");
-		
+			ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+		}
 		}
 	public boolean isTriggered(String response) {
 		for (int i = 0; i < keywords.length; i++) {
