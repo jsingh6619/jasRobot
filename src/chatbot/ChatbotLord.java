@@ -105,7 +105,11 @@ public class ChatbotLord implements Topic {
 		
 		response = ChatbotMain.getInput();
 		
-		
+		while(!isInteger(response)) {
+			ChatbotMain.print("Please input an integer");
+			response = ChatbotMain.getInput();
+		}
+			
 		while(Integer.parseInt(response) != chatGuess) 
 		{
 			if(Integer.parseInt(response) > chatGuess) {
@@ -173,4 +177,16 @@ public class ChatbotLord implements Topic {
 		return false;
 	}
 	
+	public static boolean isInteger(String input) {
+	      try
+	      {
+	         Integer.parseInt(input);
+	      }
+	      catch (NumberFormatException ex)
+	      {
+	    	  return false;
+	      }
+	 
+	      return true;
+	}
 }
