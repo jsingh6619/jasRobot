@@ -44,13 +44,13 @@ public class ChatbotAbed implements Topic
 		else
 		{
 			ChatbotMain.print("Umm can u say good or bad");
-			emotion = ChatbotMain.getInput().toLowerCase();
+			emotion = ChatbotMain.getInput();
 		}
 	}
 	private void talkPolicy(String s) 
 	{
 		ChatbotMain.print("So what do you want to learn about? Weight? How long does homework take to do?");
-		s = ChatbotMain.getInput().toLowerCase();
+		s = ChatbotMain.getInput();
 		if(ChatbotMain.findKeyword(s, "weight",  0) >=0 )
 		{
 			ChatbotMain.print("Homework is worth 20% of your grade");
@@ -95,7 +95,7 @@ public class ChatbotAbed implements Topic
 	private void giveResources(String response) 
 	{
 		ChatbotMain.print("First of all are you even doing your homework??");
-		response  = ChatbotMain.getInput().toLowerCase();
+		response  = ChatbotMain.getInput();
 		if(ChatbotMain.noInterpreter(response))
 		{
 			annoyedHelper();
@@ -105,7 +105,7 @@ public class ChatbotAbed implements Topic
 			compationateHelper();
 		}
 		ChatbotMain.print("Well tell me are you struggling with git or java concepts?");
-		response = ChatbotMain.getInput().toLowerCase();
+		response = ChatbotMain.getInput();
 		if(response.contains("java") )
 		{
 			ChatbotMain.print("Well I hope this helps! go to tutorialspoint.com/java/");
@@ -127,20 +127,20 @@ public class ChatbotAbed implements Topic
 	{
 		greeter();
 		ChatbotMain.print("Would you like to learn more about the polices or do you need help with the homework?");
-		response = ChatbotMain.getInput().toLowerCase();
+		response = ChatbotMain.getInput();
 		while(ChatbotMain.findKeyword(response.toLowerCase(), goodbyeKeyword, 0) == -1)
 		{
-			if(ChatbotMain.findKeyword(response.toLowerCase(), "policy",  0) >=0 )
+			if(ChatbotMain.findKeyword(response, "policy",  0) >=0 )
 			{
 				talkPolicy(response);
 			}
-			else if(ChatbotMain.findKeyword(response.toLowerCase(), "homework help", 0) >= 0)
+			else if(ChatbotMain.findKeyword(response, "homework help", 0) >= 0)
 			{
 				giveResources(response);
 			}
 			else
 			{
-				response = ChatbotMain.getInput().toLowerCase();
+				response = ChatbotMain.getInput();
 				ChatbotMain.print("Please pick policy or homework help");
 				responseCounter++;
 				if(responseCounter == 5)
@@ -150,7 +150,6 @@ public class ChatbotAbed implements Topic
 				}
 			}
 			
-		
 		}
 		//access variables	frOm other classes
 		

@@ -127,7 +127,7 @@ public class ChatbotMain{
 		return true;
 	}
 	public static String getInput(){
-		return inputSource.nextLine();
+		return inputSource.nextLine().toLowerCase();
 	}
 
 	public static void print(String s){
