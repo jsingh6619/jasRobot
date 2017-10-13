@@ -1,6 +1,4 @@
-
- 
- package chatbot;
+package chatbot;
 //harsh chatbot
 public class ChatbotAbid implements Topic{
 	
@@ -18,7 +16,7 @@ public class ChatbotAbid implements Topic{
 		String [] temp = {"late","classwork","food"};
 		saidLike = false;
 		keywords = temp;
-		goodbyeKeyword = "goodbye";
+		goodbyeKeyword = "bye";
 		response = "";
 		comWon = true;
 		playerWon = true;
@@ -52,7 +50,7 @@ public class ChatbotAbid implements Topic{
 						ChatbotMain.print("My grandma could you beat you and she doesn't even speak Spanish");
 					}
 					if(winCounter == 2) {
-						ChatbotMain.print("*dabs*");
+						ChatbotMain.print("dabs");
 					}
 					if(winCounter == 3) {
 						ChatbotMain.print("I TOLD YOU I COULD WIN DAD WHOS A DISGRACE TO THE FAMILY NOW");
@@ -68,7 +66,7 @@ public class ChatbotAbid implements Topic{
 						ChatbotMain.print("I can see why everybody talks about you behind your back.");
 					}
 					if(loseCounter == 3) {
-						ChatbotMain.print("*calls a number* Make it look like an accident.");
+						ChatbotMain.print("calls a number Make it look like an accident.");
 						playerWon = false;
 					}
 	
@@ -84,7 +82,7 @@ public class ChatbotAbid implements Topic{
 					ChatbotMain.getInput();
 				}
 				else {
-					ChatbotMain.print("*puts 0 into your pupilpath*");
+					ChatbotMain.print("puts 0 into your pupilpath");
 					ChatbotMain.print("Then what do you like?");
 					ChatbotMain.getInput();
 					
@@ -102,9 +100,13 @@ public class ChatbotAbid implements Topic{
 					}
 				ChatbotMain.print("You're putting me to sleep and I'm not even real.");
 				ChatbotMain.print("But anyways you got any more questions about homework, tests, or policy? Or do you just want to say bye?");
-				ChatbotMain.chatbot.restartChat(ChatbotMain.getInput());
+				response = ChatbotMain.getInput();
+				if(response.equals(goodbyeKeyword)) {
+					ChatbotMain.chatbot.restartChat(response);
+				}
 			}
 		ChatbotMain.print("GET OUTTA MY FACE " + ChatbotMain.chatbot.getUsername().toUpperCase() + " !");
+		
 		}	
 	public boolean isTriggered(String response) {
 		for (int i = 0; i < keywords.length; i++) {
