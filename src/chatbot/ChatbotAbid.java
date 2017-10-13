@@ -101,7 +101,7 @@ public class ChatbotAbid implements Topic{
 				ChatbotMain.print("You're putting me to sleep and I'm not even real.");
 				ChatbotMain.print("But anyways you got any more questions about homework, tests, or policy? Or do you just want to say bye?");
 				response = ChatbotMain.getInput();
-				if(response.equals(goodbyeKeyword)) {
+				if(!response.equals(goodbyeKeyword)) {
 					ChatbotMain.chatbot.restartChat(response);
 				}
 			}
