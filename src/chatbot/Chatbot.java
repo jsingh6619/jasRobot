@@ -124,5 +124,53 @@ public class Chatbot
 				restartChat(ChatbotMain.getInput());
 			}
 	}
-
-}
+	
+	/**requires the input to be entered twice. isn't working **/
+	/*public void startChatting() {
+		// Modified by Jasmit
+		ChatbotMain.print("Hi! I am Mr. Binoculars and a rhombus. Are you a new student?");
+			if (ChatbotMain.noInterpreter(ChatbotMain.getInput().toLowerCase())){
+				ChatbotMain.print("Sorry about that. I have so many students that I didn't recognize you. You should participate more. Tell me your first and last name.");
+					if(!ChatbotMain.isName(ChatbotMain.getInput())) {
+						ChatbotMain.print("You are making my life very hard. I will call you bad student");
+						username = "bad student";
+						ChatbotMain.print("So what do you want to talk about " + username+ "?");
+						restartChat(ChatbotMain.getInput());
+					}
+					else {
+						username = ChatbotMain.getInput();
+						ChatbotMain.print("Ohhhh. Yeah I see your name now. So what do you want to talk about " + username+ "?");
+						restartChat(ChatbotMain.getInput());
+					}
+				}
+			else if (ChatbotMain.yesInterpreter(ChatbotMain.getInput().toLowerCase())){
+				ChatbotMain.print("It seems you haven't been updated onto my roster. Tell me your name?");
+					if(!ChatbotMain.isName(ChatbotMain.getInput())) {
+						ChatbotMain.print("You are making my life very hard. I will call you bad student");
+						username = "bad student";
+						ChatbotMain.print("So what do you want to talk about " + username+ "?");
+						restartChat(ChatbotMain.getInput());
+					}
+					else {
+						username = ChatbotMain.getInput();
+						ChatbotMain.print("Okay. I've noted it down so I'll ask my supervisor later. So what do you want to talk about " + username+ "?");
+						restartChat(ChatbotMain.getInput());
+					}
+				}
+			else {
+				ChatbotMain.print("It'll be easier if you answer with a yes or no. Just tell me your name and I'll figure it out.");
+				if(!ChatbotMain.isName(ChatbotMain.getInput())) {
+					ChatbotMain.print("You are making my life very hard. I will call you bad student");
+					username = "bad student";
+					ChatbotMain.print("So what do you want to talk about " + username+ "?");
+					restartChat(ChatbotMain.getInput());
+				}
+				else {
+					username = ChatbotMain.getInput();
+					ChatbotMain.print("You aren't on my roster, so you must be a new student, " + username + ". What do you want to know about?");
+					restartChat(ChatbotMain.getInput());
+				}
+			}
+		}
+		*/
+	}

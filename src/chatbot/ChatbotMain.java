@@ -188,4 +188,28 @@ public class ChatbotMain{
 		}
 		return value;
 	}
+	
+	//created by Jasmit
+	//will limit the name the user inputs to 2 words
+	public static boolean isName(String str) {
+		if(wordCounter(str) > 2) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	//created by Jasmit
+	//counts how many words the user inputs
+	public static int wordCounter(String str) {
+		int wordCount = 1;
+		for (int i = 0; i < str.length()-1; i++) {
+			String letter = str.substring(i, i+1);
+			if(findKeyword(letter, " ", 0) >= 0){
+				wordCount++;
+			}
+		}
+		return wordCount;
+	}
 }
